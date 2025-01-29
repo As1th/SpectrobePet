@@ -1,37 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIFollowGameObject : MonoBehaviour
 {
     public Transform targetObject; // The GameObject to follow
-    public Canvas uiCanvas; // Reference to the UI Canvas
-    public float offsetDistance = 50f; // Distance from the GameObject
+    public float verticalOffset = 6f; // Vertical offset distance
+    public float horizontalOffset = 3f; // Horizontal offset distance
+    public float lerpSpeed = 5f; // Speed of lerping (adjust for smoother or faster transitions)
 
-    private RectTransform rectTransform;
-    private RectTransform canvasRect;
+    private Vector3 currentOffset;
 
-    void Start()
+    private void Update()
     {
-        rectTransform = GetComponent<RectTransform>();
-        if (uiCanvas != null)
-        {
-            canvasRect = uiCanvas.GetComponent<RectTransform>();
-        }
-
-        if (targetObject == null)
-        {
-            Debug.LogWarning("UIFollowGameObject: Target Object is not assigned!");
-        }
-
-        if (uiCanvas == null)
-        {
-            Debug.LogWarning("UIFollowGameObject: UI Canvas is not assigned!");
-        }
-    }
-
-    void Update()
-    {
-        if (targetObject != null && uiCanvas != null)
+        if (targetObject != null)
         {
             UpdateUIPosition();
         }
@@ -39,36 +19,54 @@ public class UIFollowGameObject : MonoBehaviour
 
     void UpdateUIPosition()
     {
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(targetObject.position);
+        Vector3 objectScreenPos = Camera.main.WorldToScreenPoint(targetObject.position);
 
-        // Convert screen position to UI canvas space
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect,
-            screenPos,
-            uiCanvas.worldCamera,
-            out Vector2 localPoint
-        );
+        // Check if the object is in front of the camera
+        if (objectScreenPos.z < 0) return;
 
-        // Get screen center in local canvas space
-        Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect,
-            screenCenter,
-            uiCanvas.worldCamera,
-            out Vector2 centerLocalPoint
-        );
+        // Convert screen position back to world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(objectScreenPos.x, objectScreenPos.y, objectScreenPos.z));
 
-        // Determine UI placement direction
-        Vector2 direction = centerLocalPoint - localPoint;
-        direction.Normalize();
+        // Get screen center and screen bounds
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        float screenCenterX = screenWidth / 2f;
+        float screenCenterY = screenHeight / 2f;
 
-        // Default offset (above)
-        Vector2 offset = new Vector2(0, offsetDistance);
+        // Initialize offsets
+        Vector3 offset = Vector3.zero;
 
-        // Adjust position based on screen location
-        if (localPoint.x > centerLocalPoint.x) offset.x = -offsetDistance; // Move UI left if object is on the right
-        if (localPoint.y > centerLocalPoint.y) offset.y = -offsetDistance-200; // Move UI below if object is at the top
+        // Adjust horizontal offset
+        if (objectScreenPos.x > screenCenterX)
+        {
+            // On right side -> move UI slightly to the left
+            float rightEdgeFactor = Mathf.InverseLerp(screenCenterX, screenWidth, objectScreenPos.x);
+            offset.x = -horizontalOffset * Mathf.Lerp(0.5f, 1.0f, rightEdgeFactor);
+        }
+        else
+        {
+            // On left side -> move UI slightly to the right
+            float leftEdgeFactor = Mathf.InverseLerp(0, screenCenterX, objectScreenPos.x);
+            offset.x = horizontalOffset * Mathf.Lerp(1.0f, 0.5f, leftEdgeFactor);
+        }
 
-        rectTransform.anchoredPosition = localPoint + offset;
+        // Adjust vertical offset
+        if (objectScreenPos.y > screenCenterY)
+        {
+            // On top side -> move UI downward
+            float topEdgeFactor = Mathf.InverseLerp(screenCenterY, screenHeight, objectScreenPos.y);
+            offset.y = -verticalOffset * Mathf.Lerp(0.5f, 1.0f, topEdgeFactor);
+        }
+        else
+        {
+            // On bottom side -> move UI upward
+            offset.y = verticalOffset;
+        }
+
+        // Lerp the current position towards the new offset position
+        currentOffset = Vector3.Lerp(currentOffset, offset, Time.deltaTime * lerpSpeed);
+
+        // Apply the lerped position
+        transform.position = worldPos + currentOffset;
     }
 }
