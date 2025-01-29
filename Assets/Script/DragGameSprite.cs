@@ -6,17 +6,29 @@ public class DragGameSprite : MonoBehaviour
 {
     private Vector3 screenPoint;
     private Vector3 offset;
-
+    private Camera mainCamera;
+    public GameObject Menu;
     public float zoomSpeed = 2.0f; // Adjust this value for zoom sensitivity
     private bool isMouseOver = false; // Track if the mouse is hovering over the GameObject
-
+    public float boundaryMargin = 0.5f;
     private bool isDragging = false; // Track if dragging is happening
     private Vector3 initialMousePosition; // Track the mouse position on click
 
-    public void CustomClickFunction()
+    void Start()
     {
-        // Your custom function logic here
-        Debug.Log("GameObject clicked!");
+        mainCamera = Camera.main;
+    }
+
+    public void OpenMenu()
+    {
+        if (Menu.activeSelf)
+        {
+            Menu.SetActive(false);
+        }
+        else
+        {
+            Menu.SetActive(true); 
+        }
     }
 
     void OnMouseDown()
@@ -50,6 +62,9 @@ public class DragGameSprite : MonoBehaviour
         // Convert the screen point back to world coordinates and apply the offset
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
 
+        // Clamp position to screen bounds
+        curPosition = ClampToScreenBounds(curPosition);
+
         transform.position = curPosition;
     }
 
@@ -58,7 +73,7 @@ public class DragGameSprite : MonoBehaviour
         // Trigger the custom function only if no drag occurred
         if (!isDragging)
         {
-            CustomClickFunction();
+            OpenMenu();
         }
     }
 
@@ -83,6 +98,25 @@ public class DragGameSprite : MonoBehaviour
             // Adjust the GameObject's position based on the scroll input
             transform.position += zoomDirection * scrollInput * zoomSpeed;
         }
+    }
+
+    private Vector3 ClampToScreenBounds(Vector3 targetPosition)
+    {
+        // Get screen bounds in world space
+        Vector3 minBounds = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, screenPoint.z));
+        Vector3 maxBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, screenPoint.z));
+
+        // Apply the boundary margin
+        minBounds.x += boundaryMargin;
+        minBounds.y += boundaryMargin;
+        maxBounds.x -= boundaryMargin;
+        maxBounds.y -= boundaryMargin;
+
+        // Clamp the position within the shrunk bounds
+        float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
+        float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
+
+        return new Vector3(clampedX, clampedY, targetPosition.z);
     }
 
     void OnMouseOver()
