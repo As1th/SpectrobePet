@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class DragSpriteRigid : MonoBehaviour {
+public class DragSpriteRigid : MonoBehaviour
+{
     public float dampingRatio = 5.0f;
     public float frequency = 2.5f;
     public float drag = 10.0f;
@@ -16,34 +17,40 @@ public class DragSpriteRigid : MonoBehaviour {
         camera = Camera.main;
     }
 
-    void Update () {
+    void Update()
+    {
         //
         // If the player did not press the mouse button down, do not run
         // through Update().
         //
-        if ( !Input.GetMouseButtonDown(0) ) {
+        if (!Input.GetMouseButtonDown(0))
+        {
             return;
         }
-        
-        RaycastHit2D hit = Physics2D.Raycast(
-                camera.ScreenToWorldPoint(Input.mousePosition),
-                Vector2.zero);
+
+        //
+        // Raycast into the scene from the camera to detect objects
+        //
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
         //
         // Prerequisites for dragging a GameObject. Should be
         // self-explanatory, I hope!
         //
-        if (hit.collider == null || !hit.rigidbody || hit.rigidbody.isKinematic) {
+        if (hit.collider == null || !hit.rigidbody || hit.rigidbody.isKinematic)
+        {
             return;
         }
 
         //
         // SpringJoint2D creation.
         //
-        if (!springJoint) {
+        if (!springJoint)
+        {
             GameObject obj = new GameObject("Rigidbody2D dragger");
-            Rigidbody2D body = obj.AddComponent<Rigidbody2D>() as Rigidbody2D;
-            this.springJoint = obj.AddComponent<SpringJoint2D>() as SpringJoint2D;
+            Rigidbody2D body = obj.AddComponent<Rigidbody2D>();
+            this.springJoint = obj.AddComponent<SpringJoint2D>();
             body.isKinematic = true;
         }
 
@@ -51,30 +58,25 @@ public class DragSpriteRigid : MonoBehaviour {
         // SpringJoint2D property setting.
         //
         springJoint.transform.position = hit.point;
-        // Spring endpoint, set to the position of the hit object:
         springJoint.anchor = Vector2.zero;
-        // Initially, both spring endpoints are the same point:
         springJoint.connectedAnchor = hit.transform.InverseTransformPoint(hit.point);
         springJoint.dampingRatio = this.dampingRatio;
         springJoint.frequency = this.frequency;
-        // Don't want our invisible "Rigidbody2D dragger" to collide!
         springJoint.enableCollision = false;
         springJoint.connectedBody = hit.rigidbody;
         springJoint.distance = 0.2f;
         springJoint.autoConfigureDistance = false;
 
         //
-        // Keep in mind that the if statement at the beginning of this Update()
-        // only runs through if the player presses the mouse button down.
+        // Start dragging coroutine
         //
         StartCoroutine(DragObject());
-	}
+    }
 
-    IEnumerator DragObject() {
+    IEnumerator DragObject()
+    {
         //
-        // Save the drag and angular drag of the hit rigidbody, since this
-        // script has a drag and angular drag of its own. We don't want the
-        // rigidbody to fly to our position too quickly!
+        // Save the original drag values
         //
         float oldDrag = this.springJoint.connectedBody.drag;
         float oldAngularDrag = this.springJoint.connectedBody.angularDrag;
@@ -83,23 +85,38 @@ public class DragSpriteRigid : MonoBehaviour {
         springJoint.connectedBody.angularDrag = angularDrag;
 
         //
-        // The spring joint's position becomes 
+        // Drag while mouse button is held
         //
-        while ( Input.GetMouseButton(0) ) {
-            Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        while (Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = GetMouseWorldPosition();
             springJoint.transform.position = mousePos;
             yield return null;
         }
 
         //
-        // The player released the mouse button, so the spring joint is now
-        // detached. The spring joint can be used again later.
+        // Reset properties when released
         //
-        if (springJoint.connectedBody) {
+        if (springJoint.connectedBody)
+        {
             springJoint.connectedBody.drag = oldDrag;
             springJoint.connectedBody.angularDrag = oldAngularDrag;
             springJoint.connectedBody = null;
         }
     }
-    
+
+    //
+    // Convert mouse position to world position in a perspective camera
+    //
+    private Vector3 GetMouseWorldPosition()
+    {
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(Vector3.forward, Vector3.zero); // Plane at z = 0
+        float distance;
+        if (plane.Raycast(ray, out distance))
+        {
+            return ray.GetPoint(distance);
+        }
+        return Vector3.zero;
+    }
 }
