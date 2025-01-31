@@ -12,8 +12,10 @@ public class DragSpriteRigid : MonoBehaviour
     public float maxY = 12;
     public float minY = -11;
     public bool isDragging;
+    public float joltForce = 5.0f; // Adjust the jolt force
     private SpringJoint2D springJoint;
     private Camera camera;
+    public Rigidbody2D selectedRigidbody;
 
     private void Start()
     {
@@ -24,93 +26,65 @@ public class DragSpriteRigid : MonoBehaviour
     {
         if (!isDragging)
         {
+            if (transform.position.x > maxX)
+                transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+            else if (transform.position.x < -maxX)
+                transform.position = new Vector3(-maxX, transform.position.y, transform.position.z);
+            if (transform.position.y > maxY)
+                transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
+            else if (transform.position.y < minY)
+                transform.position = new Vector3(transform.position.x, minY, transform.position.z);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+            if (hit.collider != null && hit.rigidbody != null && !hit.rigidbody.isKinematic)
             {
-                if (transform.position.x > maxX)
-                {
-                    transform.position = new Vector3 (maxX, transform.position.y, transform.position.z);
-                }
-                else if (transform.position.x < -maxX)
-                {
-                    transform.position = new Vector3(-maxX, transform.position.y, transform.position.z);
-                }
-                if (transform.position.y > maxY)
-                {
-                    transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
-                } else if (transform.position.y < minY)
-                {
-                    transform.position = new Vector3(transform.position.x, minY, transform.position.z);
-                }
+                StartDragging(hit);
+            }
+            else if (hit.collider == null)
+            {
+                ApplyJolt(GetMouseWorldPosition());
             }
         }
-        //
-        // If the player did not press the mouse button down, do not run
-        // through Update().
-        //
-        if (!Input.GetMouseButtonDown(0))
-        {
-            return;
-        }
+    }
 
-        //
-        // Raycast into the scene from the camera to detect objects
-        //
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
-
-        //
-        // Prerequisites for dragging a GameObject. Should be
-        // self-explanatory, I hope!
-        //
-        if (hit.collider == null || !hit.rigidbody || hit.rigidbody.isKinematic)
-        {
-            return;
-        }
-
-        //
-        // SpringJoint2D creation.
-        //
+    void StartDragging(RaycastHit2D hit)
+    {
         if (!springJoint)
         {
             GameObject obj = new GameObject("Rigidbody2D dragger");
             Rigidbody2D body = obj.AddComponent<Rigidbody2D>();
-            this.springJoint = obj.AddComponent<SpringJoint2D>();
+            springJoint = obj.AddComponent<SpringJoint2D>();
             body.isKinematic = true;
         }
 
-        //
-        // SpringJoint2D property setting.
-        //
         springJoint.transform.position = hit.point;
         springJoint.anchor = Vector2.zero;
         springJoint.connectedAnchor = hit.transform.InverseTransformPoint(hit.point);
-        springJoint.dampingRatio = this.dampingRatio;
-        springJoint.frequency = this.frequency;
+        springJoint.dampingRatio = dampingRatio;
+        springJoint.frequency = frequency;
         springJoint.enableCollision = false;
         springJoint.connectedBody = hit.rigidbody;
         springJoint.distance = 0.2f;
         springJoint.autoConfigureDistance = false;
 
-        //
-        // Start dragging coroutine
-        //
+       // selectedRigidbody = hit.rigidbody;
         StartCoroutine(DragObject());
     }
 
     IEnumerator DragObject()
     {
         isDragging = true;
-        //
-        // Save the original drag values
-        //
-        float oldDrag = this.springJoint.connectedBody.drag;
-        float oldAngularDrag = this.springJoint.connectedBody.angularDrag;
+        float oldDrag = springJoint.connectedBody.drag;
+        float oldAngularDrag = springJoint.connectedBody.angularDrag;
 
         springJoint.connectedBody.drag = drag;
         springJoint.connectedBody.angularDrag = angularDrag;
 
-        //
-        // Drag while mouse button is held
-        //
         while (Input.GetMouseButton(0))
         {
             Vector3 mousePos = GetMouseWorldPosition();
@@ -118,9 +92,6 @@ public class DragSpriteRigid : MonoBehaviour
             yield return null;
         }
 
-        //
-        // Reset properties when released
-        //
         isDragging = false;
         if (springJoint.connectedBody)
         {
@@ -130,13 +101,18 @@ public class DragSpriteRigid : MonoBehaviour
         }
     }
 
-    //
-    // Convert mouse position to world position in a perspective camera
-    //
+    void ApplyJolt(Vector3 targetPosition)
+    {
+        
+            Vector2 direction = (targetPosition - selectedRigidbody.transform.position).normalized;
+            selectedRigidbody.AddForce(direction * joltForce, ForceMode2D.Impulse);
+        
+    }
+
     private Vector3 GetMouseWorldPosition()
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.forward, Vector3.zero); // Plane at z = 0
+        Plane plane = new Plane(Vector3.forward, Vector3.zero);
         float distance;
         if (plane.Raycast(ray, out distance))
         {
