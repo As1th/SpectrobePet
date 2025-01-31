@@ -8,7 +8,10 @@ public class DragSpriteRigid : MonoBehaviour
     public float frequency = 2.5f;
     public float drag = 10.0f;
     public float angularDrag = 5.0f;
-
+    public float maxX = 19;
+    public float maxY = 12;
+    public float minY = -11;
+    public bool isDragging;
     private SpringJoint2D springJoint;
     private Camera camera;
 
@@ -19,6 +22,26 @@ public class DragSpriteRigid : MonoBehaviour
 
     void Update()
     {
+        if (!isDragging)
+        {
+            {
+                if (transform.position.x > maxX)
+                {
+                    transform.position = new Vector3 (maxX, transform.position.y, transform.position.z);
+                }
+                else if (transform.position.x < -maxX)
+                {
+                    transform.position = new Vector3(-maxX, transform.position.y, transform.position.z);
+                }
+                if (transform.position.y > maxY)
+                {
+                    transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
+                } else if (transform.position.y < minY)
+                {
+                    transform.position = new Vector3(transform.position.x, minY, transform.position.z);
+                }
+            }
+        }
         //
         // If the player did not press the mouse button down, do not run
         // through Update().
@@ -75,6 +98,7 @@ public class DragSpriteRigid : MonoBehaviour
 
     IEnumerator DragObject()
     {
+        isDragging = true;
         //
         // Save the original drag values
         //
@@ -97,6 +121,7 @@ public class DragSpriteRigid : MonoBehaviour
         //
         // Reset properties when released
         //
+        isDragging = false;
         if (springJoint.connectedBody)
         {
             springJoint.connectedBody.drag = oldDrag;
