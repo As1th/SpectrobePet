@@ -18,6 +18,7 @@ public class DragGameSprite : MonoBehaviour
     private Vector3 lastMousePosition;
     public bool walkCycle;
     private Animator animator;
+
     // Random walk settings
     public float walkSpeed = 2.0f;
     public float walkIntervalMin = 2.0f;
@@ -26,6 +27,16 @@ public class DragGameSprite : MonoBehaviour
     // Allowed random-walk range along local axes (i.e. along transform.right and transform.forward)
     public float walkLocalRangeX = 5.0f;
     public float walkLocalRangeY = 3.0f;
+
+    // Boundary constraints for world position (X and Y)
+    public float maxX = 19;
+    public float minX = -19;
+    public float maxY = 12;
+    public float minY = -11;
+
+    // Boundary constraints for Z axis
+    public float maxZ = 10;
+    public float minZ = -14;
 
     void Start()
     {
@@ -124,6 +135,7 @@ public class DragGameSprite : MonoBehaviour
         }
     }
 
+    // Clamp position while dragging (X, Y, and optionally Z if needed)
     private Vector3 ClampToScreenBounds(Vector3 targetPosition)
     {
         Vector3 minBounds = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, screenPoint.z));
@@ -136,8 +148,10 @@ public class DragGameSprite : MonoBehaviour
 
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
         float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
+        // For Z, clamp using our defined boundaries.
+        float clampedZ = Mathf.Clamp(targetPosition.z, minZ, maxZ);
 
-        return new Vector3(clampedX, clampedY, targetPosition.z);
+        return new Vector3(clampedX, clampedY, clampedZ);
     }
 
     void OnMouseOver()
@@ -169,7 +183,6 @@ public class DragGameSprite : MonoBehaviour
     {
         while (true)
         {
-            
             // Wait a random interval.
             float waitTime = Random.Range(walkIntervalMin, walkIntervalMax);
             yield return new WaitForSeconds(waitTime);
@@ -181,22 +194,26 @@ public class DragGameSprite : MonoBehaviour
                 // Pick a random offset in the object's local coordinate system.
                 float randomLocalX = Random.Range(-walkLocalRangeX, walkLocalRangeX);
                 float randomLocalY = Random.Range(-walkLocalRangeY, walkLocalRangeY);
+
                 // Calculate the target position using the object's local axes.
                 // (Using transform.right for local X and transform.forward for local Y)
                 Vector3 targetPos = transform.position +
                     (transform.right * randomLocalX) +
                     (transform.forward * randomLocalY);
 
+                // Clamp the target position to the specified world boundaries.
+                targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+                targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+                targetPos.z = Mathf.Clamp(targetPos.z, minZ, maxZ);
+
                 // Smoothly move toward the target position.
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
-                    
                     // If the object is dragged, rotated, or the menu is open, break out.
                     if (isDragging || rotateMode || (Menu != null && Menu.activeSelf))
                     {
                         animator.SetBool("IsWalking", false);
                         break;
-                        
                     }
 
                     // Calculate movement direction.
@@ -205,6 +222,8 @@ public class DragGameSprite : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, walkSpeed * Time.deltaTime);
                     // Update rotation to face movement direction.
                     FaceDirection(moveDirection);
+
+                  
 
                     yield return null;
                 }

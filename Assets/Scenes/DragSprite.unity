@@ -814,6 +814,12 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 5
   walkLocalRangeY: 5
+  maxX: 14
+  minX: -14
+  maxY: 9
+  minY: -9
+  maxZ: 10
+  minZ: -12
 --- !u!136 &383164169
 CapsuleCollider:
   m_ObjectHideFlags: 0
