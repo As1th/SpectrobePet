@@ -65,11 +65,7 @@ public class DragSpriteRigid : MonoBehaviour
                     }
                 }
             }
-            else if (selectedRigidbody != null)
-            {
-                // If we clicked empty space and we have a previously dragged object, apply jolt.
-                ApplyJolt(GetMouseWorldPosition());
-            }
+            
         }
     }
 
