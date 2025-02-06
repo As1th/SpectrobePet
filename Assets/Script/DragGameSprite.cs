@@ -53,6 +53,7 @@ public class DragGameSprite : MonoBehaviour
     {
         if (Menu.activeSelf)
         {
+            rotateMode = false;
             StartCoroutine(SmoothCloseMenu());
         }
         else
