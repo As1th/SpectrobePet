@@ -221,37 +221,38 @@ public class DragGameSprite : MonoBehaviour
     }
 
     // Makes the object face in the given direction.
-    void FaceDirection(Vector3 direction)
-    {
-        if (direction.sqrMagnitude > 0.001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(-direction, transform.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime * 500);
-        }
-    }
-
-    // Random walk coroutine that moves the object along its local X and Y axes.
     IEnumerator RandomWalk()
     {
         while (true)
         {
+            // Wait a random interval.
             float waitTime = Random.Range(walkIntervalMin, walkIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
+            // Only move if not being dragged, rotated, and the menu is closed.
             if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle)
             {
                 animator.SetBool("IsWalking", true);
-                float randomLocalX = Random.Range(-walkLocalRangeX, walkLocalRangeX);
-                float randomLocalY = Random.Range(-walkLocalRangeY, walkLocalRangeY);
 
-                Vector3 targetPos = transform.position + (transform.right * randomLocalX) + (transform.forward * randomLocalY);
+                // Generate random offsets along the object's local right and forward.
+                float randomOffsetX = Random.Range(-walkLocalRangeX, walkLocalRangeX);
+                float randomOffsetZ = Random.Range(-walkLocalRangeY, walkLocalRangeY); // Using walkLocalRangeY for forward direction.
 
+                // Calculate the target position using the object's local axes.
+                // This means the target lies on the object's current horizontal plane.
+                Vector3 targetPos = transform.position + (transform.right * randomOffsetX) + (transform.forward * randomOffsetZ);
+                // Optionally force the vertical (y) coordinate to remain unchanged:
+                targetPos.y = transform.position.y;
+
+                // Clamp the target position to the defined boundaries.
                 targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
                 targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
                 targetPos.z = Mathf.Clamp(targetPos.z, minZ, maxZ);
 
+                // Move toward the target.
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
+                    // Abort if interrupted.
                     if (isDragging || rotateMode || (Menu != null && Menu.activeSelf))
                     {
                         animator.SetBool("IsWalking", false);
@@ -259,13 +260,33 @@ public class DragGameSprite : MonoBehaviour
                     }
 
                     Vector3 moveDirection = targetPos - transform.position;
+                    // Move the object toward the target.
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, walkSpeed * Time.deltaTime);
-                    FaceDirection(moveDirection);
+                    // Rotate to face the movement direction, but only adjust yaw (rotation about transform.up).
+                    FaceDirectionYaw(moveDirection);
 
                     yield return null;
                 }
                 animator.SetBool("IsWalking", false);
             }
+        }
+    }
+
+    /// <summary>
+    /// Rotates the object so that it faces the given movement direction,
+    /// but only adjusts its yaw (rotation around its own up axis).
+    /// </summary>
+    /// <param name="direction">The movement direction vector.</param>
+    void FaceDirectionYaw(Vector3 direction)
+    {
+        // Project the movement direction onto the horizontal plane defined by the object's up vector.
+        Vector3 horizontalDir = Vector3.ProjectOnPlane(direction, transform.up);
+        if (horizontalDir.sqrMagnitude > 0.001f)
+        {
+            // Compute the desired rotation so the object faces the horizontal direction.
+            Quaternion desiredRotation = Quaternion.LookRotation(-horizontalDir, transform.up);
+            // Smoothly rotate only around the up axis (yaw) toward the desired rotation.
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 500);
         }
     }
 }
