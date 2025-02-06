@@ -38,6 +38,9 @@ public class DragGameSprite : MonoBehaviour
     public float maxZ = 10;
     public float minZ = -14;
 
+    [Header("Menu Transition Settings")]
+    public float menuTransitionTime = 0.5f; // Duration of the menu scale transition
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -45,9 +48,47 @@ public class DragGameSprite : MonoBehaviour
         StartCoroutine(RandomWalk());
     }
 
+    // Smoothly toggles the menu by scaling it.
     public void OpenMenu()
     {
-        Menu.SetActive(!Menu.activeSelf);
+        if (Menu.activeSelf)
+        {
+            StartCoroutine(SmoothCloseMenu());
+        }
+        else
+        {
+            StartCoroutine(SmoothOpenMenu());
+        }
+    }
+
+    IEnumerator SmoothOpenMenu()
+    {
+        // Activate the menu and set its scale to zero.
+        Menu.SetActive(true);
+        Menu.transform.localScale = Vector3.zero;
+        Vector3 targetScale = new Vector3(7.5f, 0.46f, 3.3f);
+        float t = 0;
+        while (t < menuTransitionTime)
+        {
+            t += Time.deltaTime;
+            Menu.transform.localScale = Vector3.Lerp(Vector3.zero, targetScale, t / menuTransitionTime);
+            yield return null;
+        }
+        Menu.transform.localScale = targetScale;
+    }
+
+    IEnumerator SmoothCloseMenu()
+    {
+        Vector3 initialScale = Menu.transform.localScale;
+        float t = 0;
+        while (t < menuTransitionTime)
+        {
+            t += Time.deltaTime;
+            Menu.transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, t / menuTransitionTime);
+            yield return null;
+        }
+        Menu.transform.localScale = Vector3.zero;
+        Menu.SetActive(false);
     }
 
     void OnMouseDown()
@@ -123,6 +164,8 @@ public class DragGameSprite : MonoBehaviour
                 transform.Rotate(mainCamera.transform.forward, -rotationSpeed, Space.World);
             }
         }
+
+        EnforceBounds();
     }
 
     void HandleZoom()
@@ -135,7 +178,17 @@ public class DragGameSprite : MonoBehaviour
         }
     }
 
-    // Clamp position while dragging (X, Y, and optionally Z if needed)
+    // Enforces the specified boundaries by clamping the object's position.
+    void EnforceBounds()
+    {
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+        transform.position = pos;
+    }
+
+    // Clamp position while dragging (X, Y, and Z) using defined boundaries.
     private Vector3 ClampToScreenBounds(Vector3 targetPosition)
     {
         Vector3 minBounds = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, screenPoint.z));
@@ -148,7 +201,6 @@ public class DragGameSprite : MonoBehaviour
 
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
         float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
-        // For Z, clamp using our defined boundaries.
         float clampedZ = Mathf.Clamp(targetPosition.z, minZ, maxZ);
 
         return new Vector3(clampedX, clampedY, clampedZ);
@@ -167,13 +219,9 @@ public class DragGameSprite : MonoBehaviour
     // Makes the object face in the given direction.
     void FaceDirection(Vector3 direction)
     {
-        // Only change rotation if there's a significant movement direction.
         if (direction.sqrMagnitude > 0.001f)
         {
-            // Invert the direction so that the object's "front" faces the movement direction.
-            // (This assumes the sprite's graphic is drawn so that its back faces transform.forward.)
             Quaternion targetRotation = Quaternion.LookRotation(-direction, transform.up);
-            // Smoothly rotate toward the target rotation.
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime * 500);
         }
     }
@@ -183,47 +231,32 @@ public class DragGameSprite : MonoBehaviour
     {
         while (true)
         {
-            // Wait a random interval.
             float waitTime = Random.Range(walkIntervalMin, walkIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
-            // Only move if not being dragged, rotated, and the menu is closed.
             if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle)
             {
                 animator.SetBool("IsWalking", true);
-                // Pick a random offset in the object's local coordinate system.
                 float randomLocalX = Random.Range(-walkLocalRangeX, walkLocalRangeX);
                 float randomLocalY = Random.Range(-walkLocalRangeY, walkLocalRangeY);
 
-                // Calculate the target position using the object's local axes.
-                // (Using transform.right for local X and transform.forward for local Y)
-                Vector3 targetPos = transform.position +
-                    (transform.right * randomLocalX) +
-                    (transform.forward * randomLocalY);
+                Vector3 targetPos = transform.position + (transform.right * randomLocalX) + (transform.forward * randomLocalY);
 
-                // Clamp the target position to the specified world boundaries.
                 targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
                 targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
                 targetPos.z = Mathf.Clamp(targetPos.z, minZ, maxZ);
 
-                // Smoothly move toward the target position.
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
-                    // If the object is dragged, rotated, or the menu is open, break out.
                     if (isDragging || rotateMode || (Menu != null && Menu.activeSelf))
                     {
                         animator.SetBool("IsWalking", false);
                         break;
                     }
 
-                    // Calculate movement direction.
                     Vector3 moveDirection = targetPos - transform.position;
-                    // Move toward the target.
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, walkSpeed * Time.deltaTime);
-                    // Update rotation to face movement direction.
                     FaceDirection(moveDirection);
-
-                  
 
                     yield return null;
                 }
