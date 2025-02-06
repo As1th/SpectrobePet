@@ -43,6 +43,8 @@ public class ScreenSpaceCollisionDetector : MonoBehaviour
             {
                 // A screen-space collision has been detected.
                 Debug.Log(gameObject.name + " collides (in screen space) with " + obj.name);
+                obj.GetComponentInParent<DragGameSprite>().Eat();
+                Destroy(this.gameObject.transform.parent.gameObject);
                 // Insert any collision-handling logic here.
             }
         }
@@ -76,13 +78,23 @@ public class ScreenSpaceCollisionDetector : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             Vector3 screenPoint = mainCamera.WorldToScreenPoint(worldCorners[i]);
-            // Note: We ignore the z component for screen rect calculations.
+            // Ignore the z component for screen rect calculations.
             min.x = Mathf.Min(min.x, screenPoint.x);
             min.y = Mathf.Min(min.y, screenPoint.y);
             max.x = Mathf.Max(max.x, screenPoint.x);
             max.y = Mathf.Max(max.y, screenPoint.y);
         }
 
-        return new Rect(min.x, min.y, max.x - min.x, max.y - min.y);
+        // Create the original screen-space rectangle.
+        Rect screenRect = new Rect(min.x, min.y, max.x - min.x, max.y - min.y);
+
+        // Shrink the rectangle by a factor (e.g., 90% of its original size).
+        float shrinkFactor = 0.8f;
+        Vector2 rectCenter = new Vector2(screenRect.x + screenRect.width / 2, screenRect.y + screenRect.height / 2);
+        float newWidth = screenRect.width * shrinkFactor;
+        float newHeight = screenRect.height * shrinkFactor;
+        Rect shrunkRect = new Rect(rectCenter.x - newWidth / 2, rectCenter.y - newHeight / 2, newWidth, newHeight);
+
+        return shrunkRect;
     }
 }

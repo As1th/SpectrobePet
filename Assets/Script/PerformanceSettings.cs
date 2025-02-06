@@ -5,21 +5,37 @@ using UnityEngine.Rendering.Universal;
 
 public class PerformanceSettings : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Serialized field allows you to modify it in the Inspector.
+    [SerializeField]
+    private int targetFPS = 30;
+
+    // Public property so you can also change it from code if needed.
+    public int TargetFPS
     {
-        UniversalRenderPipelineAsset urpAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
-        if (urpAsset != null)
+        get => targetFPS;
+        set
         {
-            urpAsset.renderScale = 0.5f;
+            targetFPS = value;
+            UpdateTargetFPS();
         }
-        Application.targetFrameRate = 30; // Cap FPS
-        QualitySettings.vSyncCount = 0; // Disable V-Sync for better FPS control
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        // Set the initial FPS and disable V-Sync.
+        QualitySettings.vSyncCount = 0;
+        UpdateTargetFPS();
+    }
+
+    // This method applies the current targetFPS setting.
+    void UpdateTargetFPS()
+    {
+        Application.targetFrameRate = targetFPS;
+    }
+
+    // OnValidate is called in the Editor when the script is loaded or a value is changed in the Inspector.
+    void OnValidate()
+    {
+        UpdateTargetFPS();
     }
 }

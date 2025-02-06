@@ -48,6 +48,9 @@ public class DragGameSprite : MonoBehaviour
         StartCoroutine(RandomWalk());
     }
 
+    public void Eat()
+    { print("Ate a mineral"); }
+
     // Smoothly toggles the menu by scaling it.
     public void OpenMenu()
     {
