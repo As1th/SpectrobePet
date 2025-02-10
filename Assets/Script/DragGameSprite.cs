@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public class DragGameSprite : MonoBehaviour
 {
@@ -18,7 +20,7 @@ public class DragGameSprite : MonoBehaviour
     private Vector3 lastMousePosition;
     public bool walkCycle;
     private Animator animator;
-
+   
     // Random walk settings
     public float walkSpeed = 2.0f;
     public float walkIntervalMin = 2.0f;
@@ -50,7 +52,7 @@ public class DragGameSprite : MonoBehaviour
     public float IdleDelay = 2.0f;
     private float petTimer = 0f;
     private Vector3 lastPetMousePosition;
-
+    public SpriteRenderer rotateIcon;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -72,6 +74,7 @@ public class DragGameSprite : MonoBehaviour
         if (Menu.activeSelf)
         {
             rotateMode = false;
+            rotateIcon.color = new Color(1, 1, 1, 1);
             StartCoroutine(SmoothCloseMenu());
         }
         else
@@ -183,7 +186,7 @@ public class DragGameSprite : MonoBehaviour
 
         // Petting detection: when the mouse is rapidly moved over the object.
         // Only trigger petting if the mouse button is NOT held down.
-        if (isMouseOver && !isDragging && !rotateMode && !Menu.activeSelf && !Input.GetMouseButton(0))
+        if (isMouseOver && !isDragging && !rotateMode  && !Input.GetMouseButton(0))
         {
             petTimer -= Time.deltaTime;
             Vector3 currentMousePos = Input.mousePosition;

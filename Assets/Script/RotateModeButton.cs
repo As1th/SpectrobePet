@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class RotateModeButton : MonoBehaviour
 {
     public GameManager manager;
-    private DragGameSprite Spectrobe; 
+    private DragGameSprite Spectrobe;
+    private SpriteRenderer icon;
     // Start is called before the first frame update
     void Start()
     {
         Spectrobe = manager.Spectrobe;
+        icon = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,10 +26,14 @@ public class RotateModeButton : MonoBehaviour
         if (Spectrobe.rotateMode)
         {
             Spectrobe.rotateMode = false;
+            icon.color = new Color(1, 1, 1, 1);
         }
         else
         {
             Spectrobe.rotateMode = true;
+           
+            icon.color = new Color(1, 1, 1, 0.6f);
+
         }
 
 
