@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
-public class WalkButton : MonoBehaviour
+public class RotateModeButton : MonoBehaviour
 {
     public GameManager manager;
     private DragGameSprite Spectrobe;
@@ -19,18 +19,18 @@ public class WalkButton : MonoBehaviour
 
     void OnMouseDown()
     {
-        Toggle();
+        RotateMode();
     }
-    void Toggle()
+    void RotateMode()
     {
-        if (Spectrobe.walkCycle)
+        if (Spectrobe.rotateMode)
         {
-            Spectrobe.walkCycle = false;
+            Spectrobe.rotateMode = false;
             icon.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Spectrobe.walkCycle = true;
+            Spectrobe.rotateMode = true;
            
             icon.color = new Color(1, 1, 1, 0.6f);
 
