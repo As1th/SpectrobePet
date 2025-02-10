@@ -134,14 +134,9 @@ public class DragGameSprite : MonoBehaviour
 
         if (rotateMode)
         {
-            Vector3 mouseDelta = Input.mousePosition - lastMousePosition;
-            float rotationX = mouseDelta.y * rotationSpeed;
-            float rotationY = -mouseDelta.x * rotationSpeed;
-
-            // Rotate based on camera's perspective.
-            transform.Rotate(mainCamera.transform.right, rotationX, Space.World); // Pitch
-            transform.Rotate(Vector3.up, rotationY, Space.World); // Yaw
-
+            Vector3 deltaMouse = Input.mousePosition - lastMousePosition;
+            transform.Rotate(-deltaMouse.x * rotationSpeed * Vector3.up, Space.World);
+            transform.Rotate(-deltaMouse.y * rotationSpeed * Vector3.left, Space.World);
             lastMousePosition = Input.mousePosition;
         }
         else
@@ -176,11 +171,11 @@ public class DragGameSprite : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Q))
             {
-                transform.Rotate(mainCamera.transform.forward, rotationSpeed, Space.World);
+                transform.Rotate(mainCamera.transform.forward, rotationSpeed*4, Space.World);
             }
             if (Input.GetKey(KeyCode.E))
             {
-                transform.Rotate(mainCamera.transform.forward, -rotationSpeed, Space.World);
+                transform.Rotate(mainCamera.transform.forward, -rotationSpeed*4, Space.World);
             }
         }
 

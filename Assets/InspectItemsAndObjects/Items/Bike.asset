@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa1bf716b1ab95429029b2d6f02b60a, type: 3}
+  m_Name: Bike
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: bab4862a6a25ee54ca272b076b9adba1, type: 3}
+  prefab: {fileID: 522917394443628647, guid: e27f9325f6dc5684aafddb702e7a2bb3, type: 3}
