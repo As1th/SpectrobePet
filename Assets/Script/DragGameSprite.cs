@@ -288,7 +288,7 @@ public class DragGameSprite : MonoBehaviour
 
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
-                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf) || animator.GetCurrentAnimatorStateInfo(0).IsName("Joy") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
+                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf) || animator.GetCurrentAnimatorStateInfo(0).IsName("Joy") || animator.GetCurrentAnimatorStateInfo(0).IsName(""))
                     {
                         animator.SetBool("IsWalking", false);
                         break;
