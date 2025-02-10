@@ -41,15 +41,29 @@ public class DragGameSprite : MonoBehaviour
     [Header("Menu Transition Settings")]
     public float menuTransitionTime = 0.5f; // Duration of the menu scale transition
 
+    [Header("Petting Settings")]
+    [Tooltip("Minimum movement (in screen pixels) required to trigger petting. Increase to reduce sensitivity.")]
+    public float pettingThreshold = 100f;
+    [Tooltip("Cooldown (in seconds) between pet triggers.")]
+    public float petCooldown = 0.5f;
+    [Tooltip("Delay (in seconds) after petting before triggering Idle animation.")]
+    public float petIdleDelay = 2.0f;
+    private float petTimer = 0f;
+    private Vector3 lastPetMousePosition;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         mainCamera = Camera.main;
         StartCoroutine(RandomWalk());
+        // Initialize lastPetMousePosition to the current mouse position.
+        lastPetMousePosition = Input.mousePosition;
     }
 
     public void Eat()
-    { print("Ate a mineral"); }
+    {
+        print("Ate a mineral");
+    }
 
     // Smoothly toggles the menu by scaling it.
     public void OpenMenu()
@@ -170,6 +184,20 @@ public class DragGameSprite : MonoBehaviour
         }
 
         EnforceBounds();
+
+        // Petting detection: when the mouse is rapidly moved over the object.
+        if (isMouseOver && !isDragging && !rotateMode && !Menu.activeSelf)
+        {
+            petTimer -= Time.deltaTime;
+            Vector3 currentMousePos = Input.mousePosition;
+            float delta = (currentMousePos - lastPetMousePosition).magnitude;
+            if (delta > pettingThreshold && petTimer <= 0)
+            {
+                Pet();
+                petTimer = petCooldown;
+            }
+            lastPetMousePosition = currentMousePos;
+        }
     }
 
     void HandleZoom()
@@ -213,6 +241,8 @@ public class DragGameSprite : MonoBehaviour
     void OnMouseOver()
     {
         isMouseOver = true;
+        if (lastPetMousePosition == Vector3.zero)
+            lastPetMousePosition = Input.mousePosition;
     }
 
     void OnMouseExit()
@@ -220,17 +250,26 @@ public class DragGameSprite : MonoBehaviour
         isMouseOver = false;
     }
 
-    // Makes the object face in the given direction.
+    // Makes the object face in the given direction (only adjusts yaw).
+    void FaceDirectionYaw(Vector3 direction)
+    {
+        Vector3 horizontalDir = Vector3.ProjectOnPlane(direction, transform.up);
+        if (horizontalDir.sqrMagnitude > 0.001f)
+        {
+            Quaternion desiredRotation = Quaternion.LookRotation(-horizontalDir, transform.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 500);
+        }
+    }
+
+    // Random walk coroutine that moves the object along its local horizontal plane.
     IEnumerator RandomWalk()
     {
         while (true)
         {
-            // Wait a random interval.
             float waitTime = Random.Range(walkIntervalMin, walkIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
-            // Only move if not being dragged, rotated, and the menu is closed.
-            if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle)
+            if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
             {
                 animator.SetBool("IsWalking", true);
 
@@ -238,21 +277,15 @@ public class DragGameSprite : MonoBehaviour
                 float randomOffsetX = Random.Range(-walkLocalRangeX, walkLocalRangeX);
                 float randomOffsetZ = Random.Range(-walkLocalRangeY, walkLocalRangeY); // Using walkLocalRangeY for forward direction.
 
-                // Calculate the target position using the object's local axes.
-                // This means the target lies on the object's current horizontal plane.
                 Vector3 targetPos = transform.position + (transform.right * randomOffsetX) + (transform.forward * randomOffsetZ);
-                // Optionally force the vertical (y) coordinate to remain unchanged:
                 targetPos.y = transform.position.y;
 
-                // Clamp the target position to the defined boundaries.
                 targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
                 targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
                 targetPos.z = Mathf.Clamp(targetPos.z, minZ, maxZ);
 
-                // Move toward the target.
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
-                    // Abort if interrupted.
                     if (isDragging || rotateMode || (Menu != null && Menu.activeSelf))
                     {
                         animator.SetBool("IsWalking", false);
@@ -260,9 +293,7 @@ public class DragGameSprite : MonoBehaviour
                     }
 
                     Vector3 moveDirection = targetPos - transform.position;
-                    // Move the object toward the target.
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, walkSpeed * Time.deltaTime);
-                    // Rotate to face the movement direction, but only adjust yaw (rotation about transform.up).
                     FaceDirectionYaw(moveDirection);
 
                     yield return null;
@@ -272,21 +303,18 @@ public class DragGameSprite : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Rotates the object so that it faces the given movement direction,
-    /// but only adjusts its yaw (rotation around its own up axis).
-    /// </summary>
-    /// <param name="direction">The movement direction vector.</param>
-    void FaceDirectionYaw(Vector3 direction)
+    // This function is called when the mouse is rapidly moved over the object ("petting").
+    void Pet()
     {
-        // Project the movement direction onto the horizontal plane defined by the object's up vector.
-        Vector3 horizontalDir = Vector3.ProjectOnPlane(direction, transform.up);
-        if (horizontalDir.sqrMagnitude > 0.001f)
-        {
-            // Compute the desired rotation so the object faces the horizontal direction.
-            Quaternion desiredRotation = Quaternion.LookRotation(-horizontalDir, transform.up);
-            // Smoothly rotate only around the up axis (yaw) toward the desired rotation.
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 500);
-        }
+        Debug.Log(gameObject.name + " has been petted!");
+        animator.SetTrigger("Pet");
+        StartCoroutine(PetIdle());
+    }
+
+    // After petting, trigger Idle after a set delay.
+    IEnumerator PetIdle()
+    {
+        yield return new WaitForSeconds(petIdleDelay);
+        animator.SetTrigger("Idle");
     }
 }
