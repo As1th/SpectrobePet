@@ -47,7 +47,7 @@ public class DragGameSprite : MonoBehaviour
     [Tooltip("Cooldown (in seconds) between pet triggers.")]
     public float petCooldown = 0.5f;
     [Tooltip("Delay (in seconds) after petting before triggering Idle animation.")]
-    public float petIdleDelay = 2.0f;
+    public float IdleDelay = 2.0f;
     private float petTimer = 0f;
     private Vector3 lastPetMousePosition;
 
@@ -62,7 +62,8 @@ public class DragGameSprite : MonoBehaviour
 
     public void Eat()
     {
-        print("Ate a mineral");
+        animator.SetTrigger("Joy");
+        StartCoroutine(SetIdle());
     }
 
     // Smoothly toggles the menu by scaling it.
@@ -186,7 +187,8 @@ public class DragGameSprite : MonoBehaviour
         EnforceBounds();
 
         // Petting detection: when the mouse is rapidly moved over the object.
-        if (isMouseOver && !isDragging && !rotateMode && !Menu.activeSelf)
+        // Only trigger petting if the mouse button is NOT held down.
+        if (isMouseOver && !isDragging && !rotateMode && !Menu.activeSelf && !Input.GetMouseButton(0))
         {
             petTimer -= Time.deltaTime;
             Vector3 currentMousePos = Input.mousePosition;
@@ -269,7 +271,7 @@ public class DragGameSprite : MonoBehaviour
             float waitTime = Random.Range(walkIntervalMin, walkIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
-            if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
+            if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && walkCycle && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
                 animator.SetBool("IsWalking", true);
 
@@ -286,7 +288,7 @@ public class DragGameSprite : MonoBehaviour
 
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {
-                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf))
+                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf) || animator.GetCurrentAnimatorStateInfo(0).IsName("Joy") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
                     {
                         animator.SetBool("IsWalking", false);
                         break;
@@ -308,13 +310,13 @@ public class DragGameSprite : MonoBehaviour
     {
         Debug.Log(gameObject.name + " has been petted!");
         animator.SetTrigger("Pet");
-        StartCoroutine(PetIdle());
+        StartCoroutine(SetIdle());
     }
 
     // After petting, trigger Idle after a set delay.
-    IEnumerator PetIdle()
+    IEnumerator SetIdle()
     {
-        yield return new WaitForSeconds(petIdleDelay);
+        yield return new WaitForSeconds(IdleDelay);
         animator.SetTrigger("Idle");
     }
 }

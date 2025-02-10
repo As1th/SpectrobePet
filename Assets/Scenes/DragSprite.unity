@@ -725,9 +725,9 @@ MonoBehaviour:
   maxZ: 10
   minZ: -8
   menuTransitionTime: 0.25
-  pettingThreshold: 30
-  petCooldown: 2
-  petIdleDelay: 2
+  pettingThreshold: 25
+  petCooldown: 2.5
+  IdleDelay: 2
 --- !u!136 &383164169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1804,7 +1804,7 @@ MonoBehaviour:
   menuTransitionTime: 0.25
   pettingThreshold: 100
   petCooldown: 0.5
-  petIdleDelay: 2
+  IdleDelay: 2
 --- !u!212 &1267355014
 SpriteRenderer:
   m_ObjectHideFlags: 0
