@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour
         // Choose a random screen position.
         float randomX = Random.Range(0, Screen.width);
         float randomY = Random.Range(0, Screen.height);
-        // Set a fixed depth for spawning. Here, we use the absolute value of the camera's z position,
-        // assuming the camera is positioned at a negative z value and looking toward positive z.
+        // Set a fixed depth for spawning. Here, we assume the camera is at a negative z and looking toward positive z.
         float spawnDepth = Mathf.Abs(mainCamera.transform.position.z);
         Vector3 screenPos = new Vector3(randomX, randomY, spawnDepth);
 
@@ -32,36 +31,48 @@ public class GameManager : MonoBehaviour
 
         // Instantiate the Mineral prefab at the calculated position.
         GameObject spawnedMineral = Instantiate(Mineral, spawnPos, Quaternion.identity);
-        spawnedMineral.GetComponentInChildren<ScreenSpaceCollisionDetector>().otherObjects.Add(SpectrobeRenderer);
-        
+        // Optionally add the SpectrobeRenderer to the ScreenSpaceCollisionDetector.
+        ScreenSpaceCollisionDetector detector = spawnedMineral.GetComponentInChildren<ScreenSpaceCollisionDetector>();
+        if (detector != null)
+        {
+            detector.otherObjects.Add(SpectrobeRenderer);
+        }
+
         // Replace the mesh with a random one from mineralMeshes.
         MeshFilter meshFilter = spawnedMineral.GetComponentInChildren<MeshFilter>();
+        Mesh newMesh = null;
         if (meshFilter != null && mineralMeshes.Count > 0)
         {
             int randomMeshIndex = Random.Range(0, mineralMeshes.Count);
-            meshFilter.mesh = mineralMeshes[randomMeshIndex];
+            newMesh = mineralMeshes[randomMeshIndex];
+            meshFilter.mesh = newMesh;
         }
 
-        // Replace the material(s) with random material(s) from mineralMats.
+        // Replace the material(s) based on the mesh's submesh count.
         Renderer rend = spawnedMineral.GetComponentInChildren<Renderer>();
         if (rend != null && mineralMats.Count > 0)
         {
-            Material[] mats = rend.materials;
-            if (mats.Length == 1)
+            // Determine submesh count from the new mesh. If no mesh was assigned, assume 1.
+            int subMeshCount = (newMesh != null) ? newMesh.subMeshCount : 1;
+            // Create a new material array of the appropriate size.
+            Material[] newMats = new Material[subMeshCount];
+
+            if (subMeshCount == 1)
             {
-                // For one material, pick a random material.
-                int randomMatIndex = Random.Range(0, mineralMats.Count);
-                mats[0] = mineralMats[randomMatIndex];
+                newMats[0] = mineralMats[Random.Range(0, mineralMats.Count)];
             }
-            else if (mats.Length >= 2)
+            else if (subMeshCount >= 2)
             {
-                // For two or more materials, pick two random materials for the first two slots.
-                int randomMatIndex1 = Random.Range(0, mineralMats.Count);
-                int randomMatIndex2 = Random.Range(0, mineralMats.Count);
-                mats[0] = mineralMats[randomMatIndex1];
-                mats[1] = mineralMats[randomMatIndex2];
+                // For two or more submeshes, assign two random materials to the first two slots.
+                newMats[0] = mineralMats[Random.Range(0, mineralMats.Count)];
+                newMats[1] = mineralMats[Random.Range(0, mineralMats.Count)];
+                // For any additional submeshes, fill the rest with a random material.
+                for (int i = 2; i < subMeshCount; i++)
+                {
+                    newMats[i] = mineralMats[Random.Range(0, mineralMats.Count)];
+                }
             }
-            rend.materials = mats;
+            rend.materials = newMats;
         }
     }
 
