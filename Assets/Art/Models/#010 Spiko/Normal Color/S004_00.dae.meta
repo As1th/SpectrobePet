@@ -5,10 +5,10 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -2775025762432305960
-    second: anim0
+    second: Idle
   - first:
       74: 4057566752470067675
-    second: anim1
+    second: Walk
   - first:
       74: 1655740250294795546
     second: anim2
@@ -62,7 +62,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: anim0
+      name: Idle
       takeName: anim0
       internalID: 0
       firstFrame: 0
@@ -91,7 +91,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim1
+      name: Walk
       takeName: anim1
       internalID: 0
       firstFrame: 0

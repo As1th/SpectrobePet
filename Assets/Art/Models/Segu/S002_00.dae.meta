@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3961111ab3a074d4191c002acdf5ce23
+guid: e8de4352cea009f418db8a260e92c3a7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -9,12 +9,6 @@ ModelImporter:
   - first:
       74: 4057566752470067675
     second: anim1
-  - first:
-      74: 1655740250294795546
-    second: anim2
-  - first:
-      74: 979506550278943245
-    second: anim3
   - first:
       74: -4362716201757072861
     second: anim4
@@ -34,33 +28,40 @@ ModelImporter:
       74: -703118193099512955
     second: anim9
   - first:
-      74: -785041738989145697
-    second: anim24
+      74: 4087699145684914444
+    second: anim10
   - first:
-      74: -1890640037403931688
-    second: anim25
+      74: -5360049249670796648
+    second: anim11
   - first:
-      74: 4641362668488797417
-    second: anim26
+      74: 1635831689648428675
+    second: anim12
   - first:
-      74: 3754983153751066599
-    second: Random8'
+      74: -6046912885648551108
+    second: anim13
+  - first:
+      74: -6090201482796144039
+    second: anim29
+  - first:
+      74: 2167590131240418585
+    second: anim30
+  - first:
+      74: -943643054126530880
+    second: anim31
+  - first:
+      74: -3534137163645368499
+    second: anim32
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: a_S001BodyAb
-    second: {fileID: 2100000, guid: e6ee246b6bd86074a95d1a247ecd16ee, type: 2}
+      name: a_S002BodyAf
+    second: {fileID: 2100000, guid: dddfe038972d2d54bbad989ea4137246, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: a_S001BodyAf
-    second: {fileID: 2100000, guid: 54a1797fac31b98458dab9c2a977548e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: a_S001BodyBf
-    second: {fileID: 2100000, guid: 9d74a78bd0f236841be2919fdc265eaf, type: 2}
+      name: a_S002BodyBf
+    second: {fileID: 2100000, guid: b8a5555ad2bec704fb21e410806fc8d4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -94,7 +95,7 @@ ModelImporter:
       takeName: anim0
       internalID: 0
       firstFrame: 0
-      lastFrame: 64
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,7 +124,7 @@ ModelImporter:
       takeName: anim1
       internalID: 0
       firstFrame: 0
-      lastFrame: 14
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -148,76 +149,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim2
-      takeName: anim2
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 14
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: anim3
-      takeName: anim3
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 16
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: anim4
       takeName: anim4
       internalID: 0
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 63
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -239,14 +182,14 @@ ModelImporter:
       takeName: anim5
       internalID: 0
       firstFrame: 0
-      lastFrame: 36
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -268,7 +211,7 @@ ModelImporter:
       takeName: anim6
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -297,14 +240,14 @@ ModelImporter:
       takeName: anim7
       internalID: 0
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -326,7 +269,7 @@ ModelImporter:
       takeName: anim8
       internalID: 0
       firstFrame: 0
-      lastFrame: 54
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -355,7 +298,123 @@ ModelImporter:
       takeName: anim9
       internalID: 0
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: anim10
+      takeName: anim10
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: anim11
+      takeName: anim11
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: anim12
+      takeName: anim12
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: anim13
+      takeName: anim13
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -380,11 +439,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim24
-      takeName: anim24
+      name: anim29
+      takeName: anim29
       internalID: 0
       firstFrame: 0
-      lastFrame: 64
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -409,11 +468,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim25
-      takeName: anim25
+      name: anim30
+      takeName: anim30
       internalID: 0
       firstFrame: 0
-      lastFrame: 64
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -438,11 +497,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim26
-      takeName: anim26
+      name: anim31
+      takeName: anim31
       internalID: 0
       firstFrame: 0
-      lastFrame: 14
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -467,11 +526,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Random8'
-      takeName: anim27
+      name: anim32
+      takeName: anim32
       internalID: 0
       firstFrame: 0
-      lastFrame: 54
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

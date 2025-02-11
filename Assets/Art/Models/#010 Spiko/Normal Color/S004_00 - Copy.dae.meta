@@ -5,37 +5,37 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -2775025762432305960
-    second: anim0
+    second: Idle
   - first:
       74: 4057566752470067675
     second: anim1
   - first:
       74: 1655740250294795546
-    second: anim2
+    second: Joy
   - first:
       74: 979506550278943245
-    second: anim3
+    second: Angry
   - first:
       74: -4362716201757072861
-    second: anim4
+    second: Sad
   - first:
       74: 5805698124257829051
-    second: anim5
+    second: Pet
   - first:
       74: 4763773763663784023
-    second: anim6
+    second: Random2
   - first:
       74: 2284201157604770547
-    second: anim7
+    second: Random4
   - first:
       74: -2842092398419905825
-    second: anim8
+    second: Random3
   - first:
       74: -703118193099512955
-    second: anim9
+    second: Random6
   - first:
       74: 4087699145684914444
-    second: anim10
+    second: Random7
   - first:
       74: -785041738989145697
     second: anim24
@@ -44,7 +44,7 @@ ModelImporter:
     second: anim25
   - first:
       74: 4641362668488797417
-    second: anim26
+    second: Random2 (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -75,7 +75,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: anim0
+      name: Idle
       takeName: anim0
       internalID: 0
       firstFrame: 0
@@ -133,7 +133,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim2
+      name: Joy
       takeName: anim2
       internalID: 0
       firstFrame: 0
@@ -162,7 +162,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim3
+      name: Angry
       takeName: anim3
       internalID: 0
       firstFrame: 0
@@ -191,7 +191,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim4
+      name: Sad
       takeName: anim4
       internalID: 0
       firstFrame: 0
@@ -220,7 +220,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim5
+      name: Pet
       takeName: anim5
       internalID: 0
       firstFrame: 0
@@ -249,7 +249,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim6
+      name: Random2
       takeName: anim6
       internalID: 0
       firstFrame: 0
@@ -278,7 +278,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim7
+      name: Random4
       takeName: anim7
       internalID: 0
       firstFrame: 0
@@ -307,7 +307,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim8
+      name: Random3
       takeName: anim8
       internalID: 0
       firstFrame: 0
@@ -336,7 +336,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim9
+      name: Random6
       takeName: anim9
       internalID: 0
       firstFrame: 0
@@ -365,7 +365,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim10
+      name: Random7
       takeName: anim10
       internalID: 0
       firstFrame: 0
@@ -452,7 +452,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: anim26
+      name: Random2 (1)
       takeName: anim26
       internalID: 0
       firstFrame: 0
