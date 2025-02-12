@@ -616,8 +616,8 @@ MonoBehaviour:
   walkSpeed: 3
   walkIntervalMin: 2
   walkIntervalMax: 6
-  walkLocalRangeX: 5
-  walkLocalRangeY: 5
+  walkLocalRangeX: 8
+  walkLocalRangeY: 8
   maxX: 14
   minX: -14
   maxY: 9
@@ -2190,8 +2190,8 @@ MonoBehaviour:
   walkSpeed: 3
   walkIntervalMin: 2
   walkIntervalMax: 6
-  walkLocalRangeX: 5
-  walkLocalRangeY: 5
+  walkLocalRangeX: 8
+  walkLocalRangeY: 8
   maxX: 14
   minX: -14
   maxY: 9
