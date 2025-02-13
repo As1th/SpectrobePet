@@ -5,7 +5,7 @@ There are no consequences or perpetuity to the Spectrobe pets. Give them as much
 
 # Basic Controls
 Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.  
-Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.
+Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.  
 Quickly move cursor over the Spectrobe to pet the Spectrobe.  
 Click on the Spectrobe to activate its **Menu**. Click again to deactivate.  
 
