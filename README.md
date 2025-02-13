@@ -46,4 +46,5 @@ Click to remove this Spectrobe from the screen.
 Does not work if this is the only remaining Spectrobe.  
 
 ## ![Quit](Assets/Art/Sprites/Exit.png) Quit
-Closes the Spectrobe Pet program entirely.  
+Click to close the Spectrobe Pet program entirely.  
+You can also Quit from your System Tray.
