@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineColor: {r: 0.105882354, g: 0.99607843, b: 0.6313726, a: 1}
   outlineWidth: 7.5
   precomputeOutline: 0
   bakeKeys: []
@@ -2842,7 +2842,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a095ae4ea58bd1c489f08179badc6962, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4b26120c468d4e409729cfc2e00e86a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 1
