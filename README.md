@@ -2,7 +2,7 @@
 A program that draws impermanent virtual Spectrobes directly on your Desktop that can exist as an overlay even while you are doing other tasks.  
 Spectrobe pets can be interacted with in many ways.  
 There are no consequences or perpetuity to the Spectrobe pets. Give them as much or as little attention as you would like.  
-Please Ping [@AsithDevs on Twitter](https://x.com/AsithDevs) for bugs or suggestions.
+Built by [@AsithDevs on Twitter](https://x.com/AsithDevs). Feel free to reach out for bugs or suggestions.
 
 # Basic Controls
 Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.  
