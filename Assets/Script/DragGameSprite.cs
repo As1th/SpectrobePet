@@ -52,9 +52,11 @@ public class DragGameSprite : MonoBehaviour
     public float IdleDelay = 2.0f;
     private float petTimer = 0f;
     private Vector3 lastPetMousePosition;
+    private Outline outline;
     public SpriteRenderer rotateIcon;
     void Start()
     {
+        outline = GetComponent<Outline>();
         animator = GetComponentInChildren<Animator>();
         mainCamera = Camera.main;
         StartCoroutine(RandomWalk());
@@ -76,10 +78,13 @@ public class DragGameSprite : MonoBehaviour
             rotateMode = false;
             rotateIcon.color = new Color(1, 1, 1, 1);
             StartCoroutine(SmoothCloseMenu());
+            outline.enabled = false;
         }
         else
         {
+            
             StartCoroutine(SmoothOpenMenu());
+            outline.enabled = true;
         }
     }
 
