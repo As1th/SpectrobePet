@@ -1,13 +1,14 @@
 # Basic Controls
 Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.  
 Click on the Spectrobe to activate its menu. Click again to deactivate.  
-Move cursor over the Spectrobe quickly to pet the Spectrobe.  
+Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.
+Quickly move cursor over the Spectrobe to pet the Spectrobe.  
 
 # Menu Functions
 ## Spectrobe Switch Mode
 Click to activate.  
 While activated, Spectrobe will be highlighted indicating it is in Species Switch mode.  
-Use Mouse Wheel or W/S Keys or Up/Down Keys to cycle through Spectrobe species.  
+Use Mouse Wheel or W/S Keys to cycle through Spectrobe species.  
 Click button again to deactivate.  
 
 ## Rotate Mode
