@@ -1,13 +1,14 @@
-# Spectrobe Pet
-A program that draws impermanent virtual Spectrobe pets directly on your Desktop that can exist as an overlay even while you are doing other tasks.  
+# Spectrobe Pet ![Spectrobe Switch Mode](Assets/Art/Sprites/switch.png)
+A program that draws impermanent virtual Spectrobes directly on your Desktop that can exist as an overlay even while you are doing other tasks.  
 Spectrobe pets can be interacted with in many ways.  
-There are no consequences or perpetuity to the Spectrobe pets. Give them as much or as little attention as you would like.
+There are no consequences or perpetuity to the Spectrobe pets. Give them as much or as little attention as you would like.  
+Built by [@AsithDevs on Twitter](https://x.com/AsithDevs). Feel free to reach out for bugs or suggestions.
 
 # Basic Controls
 Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.  
-Click on the Spectrobe to activate its menu. Click again to deactivate.  
-Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.
+Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.  
 Quickly move cursor over the Spectrobe to pet the Spectrobe.  
+Click on the Spectrobe to activate its **Menu**. Click again to deactivate.  
 
 # Menu Functions 
 ## ![Spectrobe Switch Mode](Assets/Art/Sprites/switch.png) Switch Spectrobe
@@ -46,4 +47,5 @@ Click to remove this Spectrobe from the screen.
 Does not work if this is the only remaining Spectrobe.  
 
 ## ![Quit](Assets/Art/Sprites/Exit.png) Quit
-Closes the Spectrobe Pet program entirely.  
+Click to close the Spectrobe Pet program entirely.  
+You can also Quit from your System Tray.
