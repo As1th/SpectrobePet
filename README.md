@@ -1,4 +1,4 @@
-# Spectrobe Pet
+# Spectrobe Pet ![Spectrobe Switch Mode](Assets/Art/Sprites/switch.png)
 A program that draws impermanent virtual Spectrobes directly on your Desktop that can exist as an overlay even while you are doing other tasks.  
 Spectrobe pets can be interacted with in many ways.  
 There are no consequences or perpetuity to the Spectrobe pets. Give them as much or as little attention as you would like.
