@@ -79,6 +79,7 @@ public class DragGameSprite : MonoBehaviour
         {
             rotateMode = false;
             rotateIcon.color = new Color(1, 1, 1, 1);
+
             StartCoroutine(SmoothCloseMenu());
             outline.enabled = false;
         }
