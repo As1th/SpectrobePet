@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+     
     public DragGameSprite Spectrobe;
     public GameObject SpectrobeRenderer;
     public GameObject Mineral;
+    public List<GameObject> currentSpectrobes;
     public List<Mesh> mineralMeshes;
     public List<Material> mineralMats;
     private Camera mainCamera;
