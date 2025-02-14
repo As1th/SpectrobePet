@@ -287,6 +287,7 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 8
   walkLocalRangeY: 8
+  walkMaxTime: 4
   maxX: 14
   minX: -14
   maxY: 9
@@ -806,6 +807,7 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 8
   walkLocalRangeY: 8
+  walkMaxTime: 4
   maxX: 14
   minX: -14
   maxY: 9
@@ -1976,6 +1978,7 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 5
   walkLocalRangeY: 5
+  walkMaxTime: 4
   maxX: 14
   minX: -14
   maxY: 9
@@ -2536,6 +2539,7 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 8
   walkLocalRangeY: 8
+  walkMaxTime: 4
   maxX: 14
   minX: -14
   maxY: 9
@@ -3161,6 +3165,7 @@ MonoBehaviour:
   walkIntervalMax: 6
   walkLocalRangeX: 5
   walkLocalRangeY: 5
+  walkMaxTime: 4
   maxX: 14
   minX: -14
   maxY: 9

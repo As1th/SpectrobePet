@@ -338,12 +338,17 @@ public class DragGameSprite : MonoBehaviour
                 float randomOffsetZ = Random.Range(-walkLocalRangeY, walkLocalRangeY); // Using walkLocalRangeY for forward direction.
 
                 Vector3 targetPos = transform.position + (transform.right * randomOffsetX) + (transform.forward * randomOffsetZ);
+                
                
-                targetPos = ClampToScreenBounds(targetPos);
 
-                while (Vector3.Distance(transform.position, targetPos) > 0.05f)
+                targetPos = ClampToScreenBounds(targetPos);
+                targetPos = transform.position + Vector3.ProjectOnPlane(targetPos - transform.position, transform.up);
+                // Initialize a timer.
+                float elapsedTime = 0f;
+                while (Vector3.Distance(transform.position, targetPos) > 0.05f && elapsedTime < walkMaxTime)
                 {
-                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf) || animator.GetCurrentAnimatorStateInfo(0).IsName("Joy") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
+                    if (isDragging || rotateMode || (Menu != null && Menu.activeSelf) ||
+                        animator.GetCurrentAnimatorStateInfo(0).IsName("Joy") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pet"))
                     {
                         animator.SetBool("IsWalking", false);
                         break;
@@ -353,13 +358,13 @@ public class DragGameSprite : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, walkSpeed * Time.deltaTime);
                     FaceDirectionYaw(moveDirection);
 
+                    elapsedTime += Time.deltaTime;
                     yield return null;
                 }
                 animator.SetBool("IsWalking", false);
             }
         }
     }
-
     // This function is called when the mouse is rapidly moved over the object ("petting").
     void Pet()
     {
