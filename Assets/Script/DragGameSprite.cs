@@ -27,8 +27,9 @@ public class DragGameSprite : MonoBehaviour
     public float walkIntervalMax = 5.0f;
 
     // Allowed random-walk range along local axes (i.e. along transform.right and transform.forward)
-    public float walkLocalRangeX = 5.0f;
-    public float walkLocalRangeY = 3.0f;
+    public float walkLocalRangeX = 8f;
+    public float walkLocalRangeY = 8f;
+    public float walkMaxTime = 4f;
 
     // Boundary constraints for world position (X and Y)
     public float maxX = 19;
@@ -62,6 +63,7 @@ public class DragGameSprite : MonoBehaviour
         StartCoroutine(RandomWalk());
         // Initialize lastPetMousePosition to the current mouse position.
         lastPetMousePosition = Input.mousePosition;
+        walkMaxTime =  walkLocalRangeX / walkSpeed;
     }
 
     public void Eat()
@@ -151,7 +153,7 @@ public class DragGameSprite : MonoBehaviour
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 curPosition = mainCamera.ScreenToWorldPoint(curScreenPoint) + offset;
-            curPosition = ClampToScreenBounds(curPosition);
+           curPosition = ClampToScreenBounds(curPosition);
             transform.position = curPosition;
         }
     }
@@ -212,18 +214,51 @@ public class DragGameSprite : MonoBehaviour
         {
             Vector3 zoomDirection = (transform.position - mainCamera.transform.position).normalized;
             transform.position += zoomDirection * scrollInput * zoomSpeed;
+            print(scrollInput);
+            
         }
     }
 
     // Enforces the specified boundaries by clamping the object's position.
     void EnforceBounds()
     {
+        // Determine the current depth from the object's position.
+        float depth = mainCamera.WorldToScreenPoint(transform.position).z;
+        // Get the world-space boundaries at that depth.
+        Vector3 minBounds = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, depth));
+        Vector3 maxBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, depth));
+
+        // Use the object's current z value to compute a scale factor.
+        float currentZ = transform.position.z;
+        float scaleFactor = 1f;
+        if (currentZ >= 0)
+        {
+            // For positive z, use a smaller divisor to boost the effect.
+            scaleFactor = 1 + (currentZ / 128f);
+        }
+        else
+        {
+            // For negative z, use a larger divisor for a milder effect.
+            scaleFactor = 1 + (currentZ / 32f);
+        }
+
+        // Compute an effective margin based on the scale factor.
+        float effectiveMargin = boundaryMargin / scaleFactor;
+
+        // Adjust the bounds with the effective margin.
+        minBounds.x += effectiveMargin;
+        minBounds.y += effectiveMargin - 2f; // The "-2f" adjustment as in your original code.
+        maxBounds.x -= effectiveMargin;
+        maxBounds.y -= effectiveMargin;
+
+        // Clamp the object's position based on the adjusted boundaries.
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+        pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
         transform.position = pos;
     }
+
 
     // Clamp position while dragging (X, Y, and Z) using defined boundaries.
     private Vector3 ClampToScreenBounds(Vector3 targetPosition)
@@ -231,10 +266,30 @@ public class DragGameSprite : MonoBehaviour
         Vector3 minBounds = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, screenPoint.z));
         Vector3 maxBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, screenPoint.z));
 
-        minBounds.x += boundaryMargin;
-        minBounds.y += boundaryMargin;
-        maxBounds.x -= boundaryMargin;
-        maxBounds.y -= boundaryMargin;
+        // Get the current depth from the object's world position (optional if you need it elsewhere)
+        float currentZ = transform.position.z;
+        float scaleFactor = 1f;
+        if (currentZ >= 0)
+        {
+          
+            // For positive Z, use a smaller divisor (e.g., 16) to increase the scale factor faster.
+            scaleFactor = 1 + (currentZ / 128f);
+            
+        }
+        else
+        {
+            // For negative Z, use a larger divisor (e.g., 32) so the effect is milder.
+            scaleFactor = 1 + (currentZ / 32f);
+        }
+
+        // Compute an effective margin; when scaleFactor is larger, effectiveMargin becomes smaller.
+        float effectiveMargin = boundaryMargin / scaleFactor;
+
+        minBounds.x += effectiveMargin;
+        minBounds.y += effectiveMargin -2f;
+        maxBounds.x -= effectiveMargin;
+        maxBounds.y -= effectiveMargin;
+
 
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
         float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
@@ -283,11 +338,8 @@ public class DragGameSprite : MonoBehaviour
                 float randomOffsetZ = Random.Range(-walkLocalRangeY, walkLocalRangeY); // Using walkLocalRangeY for forward direction.
 
                 Vector3 targetPos = transform.position + (transform.right * randomOffsetX) + (transform.forward * randomOffsetZ);
-                targetPos.y = transform.position.y;
-
-                targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
-                targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
-                targetPos.z = Mathf.Clamp(targetPos.z, minZ, maxZ);
+               
+                targetPos = ClampToScreenBounds(targetPos);
 
                 while (Vector3.Distance(transform.position, targetPos) > 0.05f)
                 {

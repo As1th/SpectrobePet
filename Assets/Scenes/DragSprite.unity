@@ -810,7 +810,7 @@ MonoBehaviour:
   minX: -14
   maxY: 9
   minY: -9
-  maxZ: 10
+  maxZ: 8
   minZ: -8
   menuTransitionTime: 0.25
   pettingThreshold: 20
