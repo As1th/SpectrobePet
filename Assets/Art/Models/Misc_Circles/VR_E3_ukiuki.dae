@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <created>2025-02-15T16:25:23Z</created>
+    <modified>2025-02-15T16:25:23Z</modified>
+  </asset>
+  <library_images>
+    <image id="image-ukiukiC">
+      <init_from>ukiukiC.png</init_from>
+    </image>
+    <image id="image-ukiukiA">
+      <init_from>ukiukiA.png</init_from>
+    </image>
+    <image id="image-ukiukiB">
+      <init_from>ukiukiB.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="material0" name="ukiukiAMat">
+      <instance_effect url="#effect0"/>
+    </material>
+    <material id="material1" name="ukiukiBMat">
+      <instance_effect url="#effect1"/>
+    </material>
+    <material id="material2" name="ukiukiCMat">
+      <instance_effect url="#effect2"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="effect0" name="ukiukiAMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-ukiukiA</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="effect1" name="ukiukiBMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-ukiukiB</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="effect2" name="ukiukiCMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-ukiukiC</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="geometry" name="VR_E3_ukiuki">
+      <mesh>
+        <source id="positions">
+          <float_array id="positions-array" count="36">-4.800049 -1.1999512 0 4.800049 -1.1999512 0 4.800049 1.1999512 0 -4.800049 1.1999512 0 -4.1000977 1.1999512 1 -0.100097656 1.1999512 1 -0.100097656 5.199951 1 -4.1000977 5.199951 1 0.100097656 -3.5 1 4.1000977 -3.5 1 4.1000977 0.5 1 0.100097656 0.5 1 </float_array>
+          <technique_common>
+            <accessor source="#positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="texcoords">
+          <float_array id="texcoords-array" count="24">0 0.75 1 0.75 1 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 </float_array>
+          <technique_common>
+            <accessor source="#texcoords-array" count="12" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="vertices">
+          <input semantic="POSITION" source="#positions"/>
+          <input semantic="TEXCOORD" source="#texcoords"/>
+        </vertices>
+        <polylist material="material0" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>0 1 2 3 </p>
+        </polylist>
+        <polylist material="material1" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>4 5 6 7 </p>
+        </polylist>
+        <polylist material="material2" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>8 9 10 11 </p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="controller">
+      <skin source="#geometry">
+        <source id="controller-joints">
+          <Name_array id="controller-joints-array" count="4">joint0 joint1 joint2 joint3 </Name_array>
+          <technique_common>
+            <accessor source="#controller-joints-array" count="4">
+              <param name="JOINT" type="Name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="controller-bind-poses">
+          <float_array id="controller-bind-poses-array" count="64">1 -0 0 -0 -0 1 -0 0 0 -0 1 -0 -0 0 -0 1 1 -0 0 -0 -0 1 -0 0 0 -0 1 -0 -0 0 -0 1 1 -0 0 2.10009765625 -0 1 -0 -3.199951171875 0 -0 1 -1 -0 0 -0 1 1 -0 0 -2.10009765625 -0 1 -0 1.5 0 -0 1 -1 -0 0 -0 1 </float_array>
+          <technique_common>
+            <accessor source="#controller-bind-poses-array" count="4" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="controller-weights">
+          <float_array id="controller-weights-array" count="1">1 </float_array>
+          <technique_common>
+            <accessor source="#controller-weights-array" count="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#controller-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#controller-bind-poses"/>
+        </joints>
+        <vertex_weights count="12">
+          <input semantic="JOINT" source="#controller-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#controller-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>1 0 1 0 1 0 1 0 2 0 2 0 2 0 2 0 3 0 3 0 3 0 3 0 </v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_animations>
+    <animation id="anim2-joint0">
+      <source id="anim2-joint0-time">
+        <float_array id="anim2-joint0-time-array" count="31">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 0.4 0.4166666666666667 0.43333333333333335 0.45 0.4666666666666667 0.48333333333333334 0.5 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint0-time-array" count="31">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint0-matrix">
+        <float_array id="anim2-joint0-matrix-array" count="496">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint0-matrix-array" count="31" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint0-interpolation">
+        <Name_array id="anim2-joint0-interpolation-array" count="31">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim2-joint0-interpolation-array" count="31">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim2-joint0-sampler">
+        <input semantic="INPUT" source="#anim2-joint0-time"/>
+        <input semantic="OUTPUT" source="#anim2-joint0-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim2-joint0-interpolation"/>
+      </sampler>
+      <channel source="#anim2-joint0-sampler" target="joint0/transform"/>
+    </animation>
+    <animation id="anim2-joint1">
+      <source id="anim2-joint1-time">
+        <float_array id="anim2-joint1-time-array" count="31">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 0.4 0.4166666666666667 0.43333333333333335 0.45 0.4666666666666667 0.48333333333333334 0.5 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint1-time-array" count="31">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint1-matrix">
+        <float_array id="anim2-joint1-matrix-array" count="496">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint1-matrix-array" count="31" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint1-interpolation">
+        <Name_array id="anim2-joint1-interpolation-array" count="31">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim2-joint1-interpolation-array" count="31">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim2-joint1-sampler">
+        <input semantic="INPUT" source="#anim2-joint1-time"/>
+        <input semantic="OUTPUT" source="#anim2-joint1-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim2-joint1-interpolation"/>
+      </sampler>
+      <channel source="#anim2-joint1-sampler" target="joint1/transform"/>
+    </animation>
+    <animation id="anim2-joint2">
+      <source id="anim2-joint2-time">
+        <float_array id="anim2-joint2-time-array" count="31">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 0.4 0.4166666666666667 0.43333333333333335 0.45 0.4666666666666667 0.48333333333333334 0.5 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint2-time-array" count="31">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint2-matrix">
+        <float_array id="anim2-joint2-matrix-array" count="496">1 0 0 -2.10009765625 0 1 0 3.199951171875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.17822265625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.117431640625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.023193359375 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.90185546875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.75927734375 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.6015625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.434814453125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.26513671875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.098388671875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.940673828125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.798095703125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.6767578125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.58251953125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.521728515625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.5 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.51904296875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.572998046875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.656982421875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.765625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 1.894287109375 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.037841796875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.19140625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.35009765625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.508544921875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.662109375 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.8056640625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 2.934326171875 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.043212890625 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.126953125 0 0 1 1 0 0 0 1 1 0 0 -2.10009765625 0 1 0 3.180908203125 0 0 1 1 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint2-matrix-array" count="31" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint2-interpolation">
+        <Name_array id="anim2-joint2-interpolation-array" count="31">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim2-joint2-interpolation-array" count="31">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim2-joint2-sampler">
+        <input semantic="INPUT" source="#anim2-joint2-time"/>
+        <input semantic="OUTPUT" source="#anim2-joint2-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim2-joint2-interpolation"/>
+      </sampler>
+      <channel source="#anim2-joint2-sampler" target="joint2/transform"/>
+    </animation>
+    <animation id="anim2-joint3">
+      <source id="anim2-joint3-time">
+        <float_array id="anim2-joint3-time-array" count="31">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 0.4 0.4166666666666667 0.43333333333333335 0.45 0.4666666666666667 0.48333333333333334 0.5 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint3-time-array" count="31">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint3-matrix">
+        <float_array id="anim2-joint3-matrix-array" count="496">1 0 0 2.10009765625 0 1 0 -1.5 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.486083984375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.446533203125 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.385498046875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.30712890625 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.21484375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.11279296875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.0048828125 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.89501953125 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.787109375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.685302734375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.593017578125 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.514404296875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.453369140625 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.4140625 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.39990234375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.412353515625 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.447265625 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.50146484375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.57177734375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.655029296875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.748046875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.847412109375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -0.949951171875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.052490234375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.15185546875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.244873046875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.328125 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.3984375 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.45263671875 0 0 1 1 0 0 0 1 1 0 0 2.10009765625 0 1 0 -1.487548828125 0 0 1 1 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim2-joint3-matrix-array" count="31" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim2-joint3-interpolation">
+        <Name_array id="anim2-joint3-interpolation-array" count="31">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim2-joint3-interpolation-array" count="31">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim2-joint3-sampler">
+        <input semantic="INPUT" source="#anim2-joint3-time"/>
+        <input semantic="OUTPUT" source="#anim2-joint3-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim2-joint3-interpolation"/>
+      </sampler>
+      <channel source="#anim2-joint3-sampler" target="joint3/transform"/>
+    </animation>
+  </library_animations>
+  <library_animation_clips>
+    <animation_clip id="anim2" name="VR_E3_ukiuki" end="0.5">
+      <instance_animation url="#anim2-joint0"/>
+      <instance_animation url="#anim2-joint1"/>
+      <instance_animation url="#anim2-joint2"/>
+      <instance_animation url="#anim2-joint3"/>
+    </animation_clip>
+  </library_animation_clips>
+  <library_visual_scenes>
+    <visual_scene id="scene0" name="VR_E3_ukiuki">
+      <node id="joint0" sid="joint0" name="world_root" type="JOINT">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <node id="joint1" sid="joint1" name="ukiukiA" type="JOINT">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        </node>
+        <node id="joint2" sid="joint2" name="ukiukiB" type="JOINT">
+          <matrix sid="transform">1 0 0 -2.10009765625 0 1 0 3.199951171875 0 0 1 1 0 0 0 1</matrix>
+        </node>
+        <node id="joint3" sid="joint3" name="ukiukiC" type="JOINT">
+          <matrix sid="transform">1 0 0 2.10009765625 0 1 0 -1.5 0 0 1 1 0 0 0 1</matrix>
+        </node>
+      </node>
+      <node id="node" name="VR_E3_ukiuki" type="NODE">
+        <instance_controller url="#controller">
+          <skeleton>#joint0</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="material0" target="#material0">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+              <instance_material symbol="material1" target="#material1">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+              <instance_material symbol="material2" target="#material2">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#scene0"/>
+  </scene>
+</COLLADA>

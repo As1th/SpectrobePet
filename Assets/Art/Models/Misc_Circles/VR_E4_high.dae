@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <created>2025-02-15T16:25:23Z</created>
+    <modified>2025-02-15T16:25:23Z</modified>
+  </asset>
+  <library_images>
+    <image id="image-highB">
+      <init_from>highB.png</init_from>
+    </image>
+    <image id="image-highA">
+      <init_from>highA.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="material0" name="highAMat">
+      <instance_effect url="#effect0"/>
+    </material>
+    <material id="material1" name="highBMat">
+      <instance_effect url="#effect1"/>
+    </material>
+    <material id="material2" name="highCMat">
+      <instance_effect url="#effect2"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="effect0" name="highAMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-highA</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="effect1" name="highBMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-highB</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="effect2" name="highCMat">
+      <profile_COMMON>
+        <newparam sid="Image-surface">
+          <surface type="2D">
+            <init_from>image-highB</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="Image-sampler">
+          <sampler2D>
+            <source>Image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+            <mipfilter>NEAREST</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </diffuse>
+            <specular>
+              <color>0 0 0 1</color>
+            </specular>
+            <transparent>
+              <texture texture="Image-sampler" texcoord="tc"/>
+            </transparent>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="geometry" name="VR_E4_high">
+      <mesh>
+        <source id="positions">
+          <float_array id="positions-array" count="84">1.7573242 -6.9328613 0.5 6.757324 -6.9328613 0.5 6.757324 -1.9328613 0.5 1.7573242 -1.9328613 0.5 0.5678711 1.7121582 0.5 5.567871 1.7121582 0.5 5.567871 6.712158 0.5 0.5678711 6.712158 0.5 -10.220459 -0.04345703 0.5 -5.220459 -0.04345703 0.5 -5.220459 4.956543 0.5 -10.220459 4.956543 0.5 -7.2685547 -8.195801 0.5 -2.2685547 -8.195801 0.5 -2.2685547 -3.1958008 0.5 -7.2685547 -3.1958008 0.5 -5.093994 4.1921387 0.5 -0.09399414 4.1921387 0.5 -0.09399414 9.192139 0.5 -5.093994 9.192139 0.5 5.261963 -3.3500977 0.5 10.261963 -3.3500977 0.5 10.261963 1.6499023 0.5 5.261963 1.6499023 0.5 -7.5 -7.5 0 7.5 -7.5 0 7.5 7.5 0 -7.5 7.5 0 </float_array>
+          <technique_common>
+            <accessor source="#positions-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="texcoords">
+          <float_array id="texcoords-array" count="56">0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0.5 0.5 0.5 0.5 1 0 1 0 0 1 0 1 1 0 1 </float_array>
+          <technique_common>
+            <accessor source="#texcoords-array" count="28" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="vertices">
+          <input semantic="POSITION" source="#positions"/>
+          <input semantic="TEXCOORD" source="#texcoords"/>
+        </vertices>
+        <polylist material="material1" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>0 1 2 3 </p>
+        </polylist>
+        <polylist material="material1" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>4 5 6 7 </p>
+        </polylist>
+        <polylist material="material1" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>8 9 10 11 </p>
+        </polylist>
+        <polylist material="material2" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>12 13 14 15 </p>
+        </polylist>
+        <polylist material="material2" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>16 17 18 19 </p>
+        </polylist>
+        <polylist material="material2" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>20 21 22 23 </p>
+        </polylist>
+        <polylist material="material0" count="1">
+          <input semantic="VERTEX" source="#vertices" offset="0"/>
+          <vcount>4 </vcount>
+          <p>24 25 26 27 </p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="controller">
+      <skin source="#geometry">
+        <source id="controller-joints">
+          <Name_array id="controller-joints-array" count="8">joint0 joint1 joint2 joint3 joint4 joint5 joint6 joint7 </Name_array>
+          <technique_common>
+            <accessor source="#controller-joints-array" count="8">
+              <param name="JOINT" type="Name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="controller-bind-poses">
+          <float_array id="controller-bind-poses-array" count="128">1 -0 0 -0 -0 1 -0 0 0 -0 1 -0 -0 0 -0 1 1 -0 0 -4.25732421875 -0 1 -0 4.432861328125 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 -3.06787109375 -0 1 -0 -4.212158203125 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 7.720458984375 -0 1 -0 -2.45654296875 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 4.7685546875 -0 1 -0 5.69580078125 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 2.593994140625 -0 1 -0 -6.692138671875 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 -7.761962890625 -0 1 -0 0.85009765625 0 -0 1 -0.5 -0 0 -0 1 1 -0 0 -0 -0 1 -0 0 0 -0 1 -0 -0 0 -0 1 </float_array>
+          <technique_common>
+            <accessor source="#controller-bind-poses-array" count="8" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="controller-weights">
+          <float_array id="controller-weights-array" count="1">1 </float_array>
+          <technique_common>
+            <accessor source="#controller-weights-array" count="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#controller-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#controller-bind-poses"/>
+        </joints>
+        <vertex_weights count="28">
+          <input semantic="JOINT" source="#controller-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#controller-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>1 0 1 0 1 0 1 0 2 0 2 0 2 0 2 0 3 0 3 0 3 0 3 0 4 0 4 0 4 0 4 0 5 0 5 0 5 0 5 0 6 0 6 0 6 0 6 0 7 0 7 0 7 0 7 0 </v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_animations>
+    <animation id="anim3-joint0">
+      <source id="anim3-joint0-time">
+        <float_array id="anim3-joint0-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint0-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint0-matrix">
+        <float_array id="anim3-joint0-matrix-array" count="384">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint0-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint0-interpolation">
+        <Name_array id="anim3-joint0-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint0-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint0-sampler">
+        <input semantic="INPUT" source="#anim3-joint0-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint0-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint0-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint0-sampler" target="joint0/transform"/>
+    </animation>
+    <animation id="anim3-joint1">
+      <source id="anim3-joint1-time">
+        <float_array id="anim3-joint1-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint1-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint1-matrix">
+        <float_array id="anim3-joint1-matrix-array" count="384">1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint1-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint1-interpolation">
+        <Name_array id="anim3-joint1-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint1-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint1-sampler">
+        <input semantic="INPUT" source="#anim3-joint1-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint1-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint1-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint1-sampler" target="joint1/transform"/>
+    </animation>
+    <animation id="anim3-joint2">
+      <source id="anim3-joint2-time">
+        <float_array id="anim3-joint2-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint2-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint2-matrix">
+        <float_array id="anim3-joint2-matrix-array" count="384">1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint2-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint2-interpolation">
+        <Name_array id="anim3-joint2-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint2-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint2-sampler">
+        <input semantic="INPUT" source="#anim3-joint2-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint2-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint2-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint2-sampler" target="joint2/transform"/>
+    </animation>
+    <animation id="anim3-joint3">
+      <source id="anim3-joint3-time">
+        <float_array id="anim3-joint3-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint3-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint3-matrix">
+        <float_array id="anim3-joint3-matrix-array" count="384">1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint3-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint3-interpolation">
+        <Name_array id="anim3-joint3-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint3-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint3-sampler">
+        <input semantic="INPUT" source="#anim3-joint3-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint3-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint3-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint3-sampler" target="joint3/transform"/>
+    </animation>
+    <animation id="anim3-joint4">
+      <source id="anim3-joint4-time">
+        <float_array id="anim3-joint4-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint4-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint4-matrix">
+        <float_array id="anim3-joint4-matrix-array" count="384">1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint4-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint4-interpolation">
+        <Name_array id="anim3-joint4-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint4-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint4-sampler">
+        <input semantic="INPUT" source="#anim3-joint4-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint4-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint4-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint4-sampler" target="joint4/transform"/>
+    </animation>
+    <animation id="anim3-joint5">
+      <source id="anim3-joint5-time">
+        <float_array id="anim3-joint5-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint5-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint5-matrix">
+        <float_array id="anim3-joint5-matrix-array" count="384">1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint5-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint5-interpolation">
+        <Name_array id="anim3-joint5-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint5-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint5-sampler">
+        <input semantic="INPUT" source="#anim3-joint5-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint5-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint5-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint5-sampler" target="joint5/transform"/>
+    </animation>
+    <animation id="anim3-joint6">
+      <source id="anim3-joint6-time">
+        <float_array id="anim3-joint6-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint6-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint6-matrix">
+        <float_array id="anim3-joint6-matrix-array" count="384">1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint6-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint6-interpolation">
+        <Name_array id="anim3-joint6-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint6-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint6-sampler">
+        <input semantic="INPUT" source="#anim3-joint6-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint6-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint6-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint6-sampler" target="joint6/transform"/>
+    </animation>
+    <animation id="anim3-joint7">
+      <source id="anim3-joint7-time">
+        <float_array id="anim3-joint7-time-array" count="24">0 0.016666666666666666 0.03333333333333333 0.05 0.06666666666666667 0.08333333333333333 0.1 0.11666666666666667 0.13333333333333333 0.15 0.16666666666666666 0.18333333333333332 0.2 0.21666666666666667 0.23333333333333334 0.25 0.26666666666666666 0.2833333333333333 0.3 0.31666666666666665 0.3333333333333333 0.35 0.36666666666666664 0.3833333333333333 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint7-time-array" count="24">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint7-matrix">
+        <float_array id="anim3-joint7-matrix-array" count="384">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.014892578125 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.0517578125 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.10009765625 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.148193359375 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.185302734375 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.199951171875 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.185302734375 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.148193359375 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.10009765625 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.0517578125 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1.014892578125 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.014892578125 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.0517578125 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.10009765625 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.148193359375 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.185302734375 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.199951171875 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.185302734375 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.148193359375 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.10009765625 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.0517578125 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.014892578125 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 </float_array>
+        <technique_common>
+          <accessor source="#anim3-joint7-matrix-array" count="24" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="anim3-joint7-interpolation">
+        <Name_array id="anim3-joint7-interpolation-array" count="24">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR </Name_array>
+        <technique_common>
+          <accessor source="#anim3-joint7-interpolation-array" count="24">
+            <param name="INTERPOLATION" type="Name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="anim3-joint7-sampler">
+        <input semantic="INPUT" source="#anim3-joint7-time"/>
+        <input semantic="OUTPUT" source="#anim3-joint7-matrix"/>
+        <input semantic="INTERPOLATION" source="#anim3-joint7-interpolation"/>
+      </sampler>
+      <channel source="#anim3-joint7-sampler" target="joint7/transform"/>
+    </animation>
+  </library_animations>
+  <library_animation_clips>
+    <animation_clip id="anim3" name="VR_E4_high" end="0.3833333333333333">
+      <instance_animation url="#anim3-joint0"/>
+      <instance_animation url="#anim3-joint1"/>
+      <instance_animation url="#anim3-joint2"/>
+      <instance_animation url="#anim3-joint3"/>
+      <instance_animation url="#anim3-joint4"/>
+      <instance_animation url="#anim3-joint5"/>
+      <instance_animation url="#anim3-joint6"/>
+      <instance_animation url="#anim3-joint7"/>
+    </animation_clip>
+  </library_animation_clips>
+  <library_visual_scenes>
+    <visual_scene id="scene0" name="VR_E4_high">
+      <node id="joint0" sid="joint0" name="world_root" type="JOINT">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <node id="joint1" sid="joint1" name="high_1Ba" type="JOINT">
+          <matrix sid="transform">1 0 0 4.25732421875 0 1 0 -4.432861328125 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint2" sid="joint2" name="high_1Bb" type="JOINT">
+          <matrix sid="transform">1 0 0 3.06787109375 0 1 0 4.212158203125 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint3" sid="joint3" name="high_1Bc" type="JOINT">
+          <matrix sid="transform">1 0 0 -7.720458984375 0 1 0 2.45654296875 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint4" sid="joint4" name="high_1Ca" type="JOINT">
+          <matrix sid="transform">1 0 0 -4.7685546875 0 1 0 -5.69580078125 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint5" sid="joint5" name="high_1Cb" type="JOINT">
+          <matrix sid="transform">1 0 0 -2.593994140625 0 1 0 6.692138671875 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint6" sid="joint6" name="high_1Cc" type="JOINT">
+          <matrix sid="transform">1 0 0 7.761962890625 0 1 0 -0.85009765625 0 0 1 0.5 0 0 0 1</matrix>
+        </node>
+        <node id="joint7" sid="joint7" name="high_2A" type="JOINT">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        </node>
+      </node>
+      <node id="node" name="VR_E4_high" type="NODE">
+        <instance_controller url="#controller">
+          <skeleton>#joint0</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="material0" target="#material0">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+              <instance_material symbol="material1" target="#material1">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+              <instance_material symbol="material2" target="#material2">
+                <bind_vertex_input semantic="tc" input_semantic="TEXCOORD"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#scene0"/>
+  </scene>
+</COLLADA>
