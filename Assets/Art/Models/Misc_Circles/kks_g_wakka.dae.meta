@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: -4362716201757072861
     second: anim4
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ring01BMat
+    second: {fileID: 2100000, guid: 58c0f77e6c8e97746b47febf049ddfde, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

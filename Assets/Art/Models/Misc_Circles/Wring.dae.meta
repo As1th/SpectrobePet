@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: -4362716201757072861
     second: anim4
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P0A0Wrp1a
+    second: {fileID: 2100000, guid: 66cb0eca287cbe646a323bcff97319fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

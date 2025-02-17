@@ -3,7 +3,27 @@ guid: 477ff69057bdac640a585d24de12eb93
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flare_white
+    second: {fileID: 2100000, guid: 5a08038def8ba864d85a66f18b0c6127, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hex4
+    second: {fileID: 2100000, guid: 266802aeab60a4e47add9dec8226518f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laser
+    second: {fileID: 2100000, guid: 91c50ce424182fc43b6749c274bb8967, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ring_a
+    second: {fileID: 2100000, guid: 2db7cfa91bde26240a30d0d2f8fc2d07, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

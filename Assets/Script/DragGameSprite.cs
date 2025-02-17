@@ -10,6 +10,7 @@ public class DragGameSprite : MonoBehaviour
     private Vector3 offset;
     private Camera mainCamera;
     public GameObject Menu;
+    public GameObject Ring;
     public float zoomSpeed = 2.0f; // Zoom sensitivity
     private bool isMouseOver = false;
     public float boundaryMargin = 0.5f;
@@ -83,7 +84,7 @@ public class DragGameSprite : MonoBehaviour
         {
             rotateMode = false;
             rotateIcon.color = new Color(1, 1, 1, 1);
-
+            Ring.SetActive(false);
             StartCoroutine(SmoothCloseMenu());
             outline.enabled = false;
         }

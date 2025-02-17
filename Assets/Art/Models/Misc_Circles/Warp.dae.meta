@@ -9,7 +9,17 @@ ModelImporter:
   - first:
       74: -4362716201757072861
     second: anim4
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P6A2a_wal_c1
+    second: {fileID: 2100000, guid: da97fa60a92849d4b99f370282f95392, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: warp01
+    second: {fileID: 2100000, guid: 2722f554f173c9e40a9451f63fb90570, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
