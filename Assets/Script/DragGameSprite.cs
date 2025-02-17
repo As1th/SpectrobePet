@@ -20,7 +20,10 @@ public class DragGameSprite : MonoBehaviour
     private Vector3 lastMousePosition;
     public bool walkCycle;
     private Animator animator;
-   
+    public GameObject particlePet;
+    public GameObject particleJoy;
+    public GameObject particleAngry;
+    public GameObject particleSad;
     // Random walk settings
     public float walkSpeed = 2.0f;
     public float walkIntervalMin = 2.0f;
@@ -69,6 +72,7 @@ public class DragGameSprite : MonoBehaviour
     public void Eat()
     {
         animator.SetTrigger("Joy");
+        Instantiate(particleJoy, transform);
         StartCoroutine(SetIdle());
     }
 
@@ -369,7 +373,7 @@ public class DragGameSprite : MonoBehaviour
     // This function is called when the mouse is rapidly moved over the object ("petting").
     void Pet()
     {
-        Debug.Log(gameObject.name + " has been petted!");
+        Instantiate(particlePet, transform);
         animator.SetTrigger("Pet");
         StartCoroutine(SetIdle());
     }
