@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject SpectrobeRenderer;
     public GameObject Mineral;
     public List<GameObject> currentSpectrobes;
+    public List<GameObject> currentMinerals;
     public List<Mesh> mineralMeshes;
     public List<Material> mineralMats;
     private Camera mainCamera;
@@ -33,11 +34,15 @@ public class GameManager : MonoBehaviour
 
         // Instantiate the Mineral prefab at the calculated position.
         GameObject spawnedMineral = Instantiate(Mineral, spawnPos, Quaternion.identity);
+        currentMinerals.Add(spawnedMineral);
         // Optionally add the SpectrobeRenderer to the ScreenSpaceCollisionDetector.
         ScreenSpaceCollisionDetector detector = spawnedMineral.GetComponentInChildren<ScreenSpaceCollisionDetector>();
         if (detector != null)
         {
-            detector.otherObjects.Add(SpectrobeRenderer);
+            foreach (GameObject spec in currentSpectrobes)
+            {
+                detector.otherObjects.Add(spec.GetComponentInChildren<SkinnedMeshRenderer>().gameObject);
+            }
         }
 
         // Replace the mesh with a random one from mineralMeshes.
