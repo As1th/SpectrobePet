@@ -99,6 +99,8 @@ public class Outline : MonoBehaviour {
     needsUpdate = true;
   }
 
+
+
   void OnEnable() {
     foreach (var renderer in renderers) {
 

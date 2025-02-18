@@ -6,6 +6,8 @@ using Color = UnityEngine.Color;
 
 public class DragGameSprite : MonoBehaviour
 {
+    private int speciesID = 2;
+    public GameManager manager;
     private Vector3 screenPoint;
     private Vector3 offset;
     private Camera mainCamera;
@@ -62,17 +64,22 @@ public class DragGameSprite : MonoBehaviour
     public SpriteRenderer switchIcon;
     public SpriteRenderer rotateIcon;
 
-     
+    public float repeatRate = 0.5f; // Time interval between triggers
+    private float nextTriggerTime = 0f;
+    private bool keyHeld = false;
     void Start()
     {
-        outline = GetComponent<Outline>();
-        animator = GetComponentInChildren<Animator>();
+        
+        
         mainCamera = Camera.main;
         StartCoroutine(RandomWalk());
         // Initialize lastPetMousePosition to the current mouse position.
         lastPetMousePosition = Input.mousePosition;
         walkMaxTime =  walkLocalRangeX / walkSpeed;
+        outline = GetComponentInChildren<Outline>();
+        animator = GetComponentInChildren<Animator>();
     }
+
 
     public void Eat()
     {
@@ -205,6 +212,24 @@ public class DragGameSprite : MonoBehaviour
             {
                 transform.Rotate(mainCamera.transform.forward, -rotationSpeed*4, Space.World);
             }
+        } else if(switchMode)
+        {
+
+            if (Input.GetKeyDown(KeyCode.W)) // Immediate trigger on press
+            {
+                IncrementSpecies();
+                keyHeld = true;
+                nextTriggerTime = Time.time + repeatRate;
+            }
+            else if (Input.GetKey(KeyCode.W) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
+            {
+                IncrementSpecies();
+                nextTriggerTime = Time.time + repeatRate;
+            }
+            else if (Input.GetKeyUp(KeyCode.W)) // Reset when released
+            {
+                keyHeld = false;
+            }
         }
 
         EnforceBounds();
@@ -237,6 +262,25 @@ public class DragGameSprite : MonoBehaviour
         }
     }
 
+    public void IncrementSpecies()
+    {
+
+        speciesID++;
+        if(speciesID > manager.spectrobeSpecies.Count-1)
+        { speciesID = 0;
+        }
+        Destroy(transform.GetChild(0).gameObject);
+        transform.DetachChildren();
+        if (transform.childCount == 0 ) {
+        
+            var mon = Instantiate(manager.spectrobeSpecies[speciesID], transform);
+            animator = mon.GetComponent<Animator>();
+            outline = mon.GetComponent<Outline>();
+        }
+
+
+
+    }
     // Enforces the specified boundaries by clamping the object's position.
     void EnforceBounds()
     {
