@@ -16,6 +16,7 @@ public class DragGameSprite : MonoBehaviour
     public float boundaryMargin = 0.5f;
     public bool isDragging = false;
     private Vector3 initialMousePosition;
+    public bool switchMode = false;
     public bool rotateMode = false; // Toggle for rotation mode
     public float rotationSpeed = 5.0f; // Rotation sensitivity (used for both manual and random turning)
     private Vector3 lastMousePosition;
@@ -58,7 +59,10 @@ public class DragGameSprite : MonoBehaviour
     private float petTimer = 0f;
     private Vector3 lastPetMousePosition;
     private Outline outline;
+    public SpriteRenderer switchIcon;
     public SpriteRenderer rotateIcon;
+
+     
     void Start()
     {
         outline = GetComponent<Outline>();
@@ -77,14 +81,22 @@ public class DragGameSprite : MonoBehaviour
         StartCoroutine(SetIdle());
     }
 
+    public void resetIcon(SpriteRenderer icon)
+    {
+        icon.color = new Color(1, 1, 1, 1);
+    }
+
     // Smoothly toggles the menu by scaling it.
     public void OpenMenu()
     {
         if (Menu.activeSelf)
         {
             rotateMode = false;
-            rotateIcon.color = new Color(1, 1, 1, 1);
-            Ring.SetActive(false);
+            switchMode = false;
+            resetIcon(rotateIcon);
+            resetIcon(switchIcon);
+           
+            StartCoroutine(SmoothCloseRing());
             StartCoroutine(SmoothCloseMenu());
             outline.enabled = false;
         }
@@ -326,7 +338,19 @@ public class DragGameSprite : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 500);
         }
     }
-
+    IEnumerator SmoothCloseRing()
+    {
+        Vector3 initialScale = Ring.transform.localScale;
+        float t = 0;
+        while (t < menuTransitionTime)
+        {
+            t += Time.deltaTime;
+            Ring.transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, t / menuTransitionTime);
+            yield return null;
+        }
+        Ring.transform.localScale = Vector3.zero;
+        Ring.SetActive(false);
+    }
     // Random walk coroutine that moves the object along its local horizontal plane.
     IEnumerator RandomWalk()
     {
