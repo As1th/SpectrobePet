@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> currentMinerals;
     public List<Mesh> mineralMeshes;
     public List<Material> mineralMats;
+    public List<GameObject> spectrobeSpecies;
     private Camera mainCamera;
 
     // Start is called before the first frame update

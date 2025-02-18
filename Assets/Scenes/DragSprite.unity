@@ -1317,7 +1317,6 @@ MonoBehaviour:
   Mineral: {fileID: 2024517946511050203, guid: c9a7de93990f4824f884282dcde84d5d, type: 3}
   currentSpectrobes:
   - {fileID: 383164162}
-  - {fileID: 1267355011}
   currentMinerals: []
   mineralMeshes:
   - {fileID: 1700091176054199008, guid: a0fdbf4f20a6e1a419a540677ce8c80e, type: 3}
@@ -1333,6 +1332,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 40e3f74a675d80e42893b49e45c286f4, type: 2}
   - {fileID: 2100000, guid: 0c27e8c1041d1bd49bbb41907d1898ee, type: 2}
   - {fileID: 2100000, guid: b7b5a381ded63794b989b8474966a4ca, type: 2}
+  spectrobeSpecies: []
 --- !u!95 &691075340
 Animator:
   serializedVersion: 4
@@ -2169,7 +2169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1267355012
 CapsuleCollider:
   m_ObjectHideFlags: 0
