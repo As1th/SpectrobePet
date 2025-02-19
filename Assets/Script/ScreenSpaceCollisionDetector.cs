@@ -43,8 +43,9 @@ public class ScreenSpaceCollisionDetector : MonoBehaviour
             {
                 // A screen-space collision has been detected.
                 Debug.Log(gameObject.name + " collides (in screen space) with " + obj.name);
-                obj.GetComponentInParent<DragGameSprite>().Eat();
-                Destroy(this.gameObject.transform.parent.gameObject);
+                obj.GetComponentInParent<DragGameSprite>().Eat(this.gameObject.transform.parent.gameObject);
+
+                
                 // Insert any collision-handling logic here.
             }
         }

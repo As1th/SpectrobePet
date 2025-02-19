@@ -81,8 +81,10 @@ public class DragGameSprite : MonoBehaviour
     }
 
 
-    public void Eat()
+    public void Eat(GameObject min)
     {
+        manager.currentMinerals.Remove(min);
+        Destroy(min);
         animator.SetTrigger("Joy");
         Instantiate(particleJoy, transform);
         StartCoroutine(SetIdle());
@@ -276,7 +278,15 @@ public class DragGameSprite : MonoBehaviour
             var mon = Instantiate(manager.spectrobeSpecies[speciesID], transform);
             animator = mon.GetComponent<Animator>();
             outline = mon.GetComponent<Outline>();
+            foreach (GameObject min in manager.currentMinerals)
+            {
+                foreach (GameObject spec in manager.currentSpectrobes)
+                {
+                    min.GetComponentInChildren<ScreenSpaceCollisionDetector>().otherObjects.Add(spec.GetComponentInChildren<SkinnedMeshRenderer>().gameObject);
+                }
+            }
         }
+
 
 
 

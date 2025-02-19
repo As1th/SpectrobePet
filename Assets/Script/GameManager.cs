@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
      
     public DragGameSprite Spectrobe;
-    public GameObject SpectrobeRenderer;
+    
     public GameObject Mineral;
     public List<GameObject> currentSpectrobes;
     public List<GameObject> currentMinerals;
