@@ -6,7 +6,7 @@ using Color = UnityEngine.Color;
 
 public class DragGameSprite : MonoBehaviour
 {
-    private int speciesID = 2;
+    private int speciesID = 3;
     public GameManager manager;
     private Vector3 screenPoint;
     private Vector3 offset;
