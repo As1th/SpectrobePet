@@ -1219,7 +1219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spectrobe: {fileID: 383164168}
-  SpectrobeRenderer: {fileID: 5816243618987488550}
   Mineral: {fileID: 2024517946511050203, guid: c9a7de93990f4824f884282dcde84d5d, type: 3}
   currentSpectrobes:
   - {fileID: 383164162}
@@ -3668,7 +3667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!137 &3927267022210771463
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -3978,11 +3977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561f8d25c18424742a9257c31388939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5816243618987488550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5996953923803533249, guid: 5b26ec2d5d719dc4585db962dde567d2, type: 3}
-  m_PrefabInstance: {fileID: 256150009111673575}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6591179748478076600
 PrefabInstance:
   m_ObjectHideFlags: 0
