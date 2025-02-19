@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 15cb34029c556c44eb6494aa0d4df39b
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -2775025762432305960
+    second: anim0
+  - first:
+      74: 4057566752470067675
+    second: anim1
+  - first:
+      74: 1655740250294795546
+    second: anim2
+  - first:
+      74: 979506550278943245
+    second: anim3
+  - first:
+      74: -4362716201757072861
+    second: anim4
+  - first:
+      74: 5805698124257829051
+    second: anim5
+  - first:
+      74: 4763773763663784023
+    second: anim6
+  - first:
+      74: 2284201157604770547
+    second: anim7
+  - first:
+      74: -2842092398419905825
+    second: anim8
+  - first:
+      74: -785041738989145697
+    second: anim24
+  - first:
+      74: -1890640037403931688
+    second: anim25
+  - first:
+      74: 4641362668488797417
+    second: anim26
+  - first:
+      74: 3754983153751066599
+    second: anim27
+  - first:
+      74: -7735865491530669910
+    second: anim28
+  - first:
+      74: -6090201482796144039
+    second: anim29
+  - first:
+      74: 2167590131240418585
+    second: anim30
+  - first:
+      74: -943643054126530880
+    second: anim31
+  - first:
+      74: -3534137163645368499
+    second: anim32
+  - first:
+      74: 7474302761697262612
+    second: anim48
+  - first:
+      74: 8285277826996108994
+    second: anim49
+  - first:
+      74: 5323151098286146842
+    second: anim50
+  - first:
+      74: -8426116074277144510
+    second: anim51
+  - first:
+      74: 1237766478723668047
+    second: anim52
+  - first:
+      74: 8503919620807312329
+    second: anim53
+  - first:
+      74: -4975685258733398652
+    second: anim54
+  - first:
+      74: -3493556515143373800
+    second: anim55
+  - first:
+      74: -8097369532996968916
+    second: anim56
+  - first:
+      74: -5480231180904124644
+    second: anim72
+  - first:
+      74: -6990260758683615209
+    second: anim73
+  - first:
+      74: -2245649015753207853
+    second: anim74
+  - first:
+      74: 6999390709170208126
+    second: anim75
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: a_S006BodyAf
+    second: {fileID: 2100000, guid: 0fceeb6a67568c8489ceeca4ede3957c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: a_S006BodyBf
+    second: {fileID: 2100000, guid: 105afbe1c305e2f489a5d4c3a9d75158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: a_S006BodyCb
+    second: {fileID: 2100000, guid: e5840068532fe9f4ab00157d09a9a8f3, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,6 +9,12 @@ public class SwitchButton : MonoBehaviour
     private DragGameSprite Spectrobe;
     private SpriteRenderer icon;
     public float ringTime = 0.2f;
+    public SpriteRenderer key1;
+    public SpriteRenderer key2;
+    public SpriteRenderer key3;
+    public Sprite key1icon;
+    public Sprite key2icon;
+    public Sprite key3icon;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,7 @@ public class SwitchButton : MonoBehaviour
             Spectrobe.rotateMode = false;
             Spectrobe.resetIcon(Spectrobe.rotateIcon);
             Spectrobe.switchMode = true;
+            key1.sprite = key1icon; key2.sprite = key2icon; key3.sprite = key3icon;
             StartCoroutine(SmoothOpenRing());
             icon.color = new Color(1, 1, 1, 0.6f);
 
