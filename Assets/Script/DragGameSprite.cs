@@ -84,6 +84,10 @@ public class DragGameSprite : MonoBehaviour
     public void Eat(GameObject min)
     {
         manager.currentMinerals.Remove(min);
+        if (min.GetComponent<DragSpriteRigid>().springJoint != null)
+        {
+            Destroy(min.GetComponent<DragSpriteRigid>().springJoint.gameObject);
+        }
         Destroy(min);
         animator.SetTrigger("Joy");
         Instantiate(particleJoy, transform);
