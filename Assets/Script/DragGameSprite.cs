@@ -236,6 +236,22 @@ public class DragGameSprite : MonoBehaviour
             {
                 keyHeld = false;
             }
+
+            if (Input.GetKeyDown(KeyCode.S)) // Immediate trigger on press
+            {
+                DecrementSpecies();
+                keyHeld = true;
+                nextTriggerTime = Time.time + repeatRate;
+            }
+            else if (Input.GetKey(KeyCode.S) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
+            {
+                DecrementSpecies();
+                nextTriggerTime = Time.time + repeatRate;
+            }
+            else if (Input.GetKeyUp(KeyCode.S)) // Reset when released
+            {
+                keyHeld = false;
+            }
         }
 
         EnforceBounds();
@@ -272,9 +288,23 @@ public class DragGameSprite : MonoBehaviour
     {
 
         speciesID++;
-        if(speciesID > manager.spectrobeSpecies.Count-1)
+        if (speciesID > manager.spectrobeSpecies.Count - 1)
         { speciesID = 0;
         }
+        ChangeSpectrobeModel();
+    }
+    public void DecrementSpecies()
+    {
+
+        speciesID--;
+        if (speciesID < 0 )
+        {
+            speciesID = manager.spectrobeSpecies.Count - 1;
+        }
+        ChangeSpectrobeModel();
+    }
+    public void ChangeSpectrobeModel()
+    { 
         Destroy(transform.GetChild(0).gameObject);
         transform.DetachChildren();
         if (transform.childCount == 0 ) {
