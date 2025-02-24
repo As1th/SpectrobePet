@@ -63,6 +63,7 @@ public class DragGameSprite : MonoBehaviour
     private Outline outline;
     public SpriteRenderer switchIcon;
     public SpriteRenderer rotateIcon;
+    public SpriteRenderer walkIcon;
 
     public float repeatRate = 0.5f; // Time interval between triggers
     private float nextTriggerTime = 0f;
@@ -77,8 +78,13 @@ public class DragGameSprite : MonoBehaviour
     public float happiness = 100f;
     void Start()
     {
-        
-        
+
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Menu = manager.Menu;
+        Ring = manager.Ring;
+        switchIcon = manager.switchIcon;
+        rotateIcon = manager.rotateIcon;
+        walkIcon = manager.walkIcon;
         mainCamera = Camera.main;
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(RandomWalk());
@@ -113,7 +119,7 @@ public class DragGameSprite : MonoBehaviour
     // Smoothly toggles the menu by scaling it.
     public void OpenMenu()
     {
-        if (Menu.activeSelf)
+        if (Menu.activeSelf && Menu.GetComponent<UIFollowGameObject>().targetObject == this.transform)
         {
             rotateMode = false;
             switchMode = false;
@@ -204,7 +210,34 @@ public class DragGameSprite : MonoBehaviour
     {
         if (!isDragging)
         {
+            if (walkCycle)
+            {
+                              walkIcon.color = new Color(1, 1, 1, 0.6f);
+            }
+            else
+            {
+                             walkIcon.color = new Color(1, 1, 1, 1f);
+            }
+
+            Ring.transform.localScale = Vector3.zero;
+            Ring.SetActive(false);
             OpenMenu();
+            manager.SelectedSpectrobe.rotateMode = false;
+                manager.SelectedSpectrobe.switchMode = false;
+                resetIcon(rotateIcon);
+                resetIcon(switchIcon);
+                manager.SelectedSpectrobe.outline.enabled = false;
+                Menu.GetComponent<UIFollowGameObject>().targetObject = this.transform;
+                Ring.GetComponent<UIFollowGameObject>().targetObject = this.transform;
+                manager.SelectedSpectrobe = this;
+            
+               
+            
+          
+
+            
+            
+
         }
         else
         {

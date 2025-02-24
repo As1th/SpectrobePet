@@ -11,7 +11,7 @@ public class WalkButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spectrobe = manager.Spectrobe;
+        Spectrobe = manager.SelectedSpectrobe;
         icon = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -23,6 +23,7 @@ public class WalkButton : MonoBehaviour
     }
     void Toggle()
     {
+        Spectrobe = manager.SelectedSpectrobe;
         if (Spectrobe.walkCycle)
         {
             Spectrobe.walkCycle = false;

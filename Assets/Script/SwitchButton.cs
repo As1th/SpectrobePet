@@ -18,7 +18,7 @@ public class SwitchButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spectrobe = manager.Spectrobe;
+        Spectrobe = manager.SelectedSpectrobe;
         icon = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -30,6 +30,7 @@ public class SwitchButton : MonoBehaviour
     }
     void SwitchMode()
     {
+        Spectrobe = manager.SelectedSpectrobe;
         if (Spectrobe.switchMode)
         {
             Spectrobe.switchMode = false;

@@ -5,9 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
      
-    public DragGameSprite Spectrobe;
+    public DragGameSprite SelectedSpectrobe;
     
     public GameObject Mineral;
+    public GameObject Menu;
+    public GameObject Ring;
+    public SpriteRenderer switchIcon;
+    public SpriteRenderer rotateIcon;
+    public SpriteRenderer walkIcon;
     public List<GameObject> currentSpectrobes;
     public List<GameObject> currentMinerals;
     public List<Mesh> mineralMeshes;

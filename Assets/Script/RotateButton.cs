@@ -18,7 +18,7 @@ public class RotateButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spectrobe = manager.Spectrobe;
+        Spectrobe = manager.SelectedSpectrobe;
         icon = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -30,6 +30,7 @@ public class RotateButton : MonoBehaviour
     }
     void RotateMode()
     {
+        Spectrobe = manager.SelectedSpectrobe;
         if (Spectrobe.rotateMode)
         {
             Spectrobe.rotateMode = false;
