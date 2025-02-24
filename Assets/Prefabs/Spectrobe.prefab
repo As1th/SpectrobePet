@@ -78,6 +78,7 @@ MonoBehaviour:
   IdleDelay: 2
   switchIcon: {fileID: 0}
   rotateIcon: {fileID: 0}
+  walkIcon: {fileID: 0}
   repeatRate: 0.175
   randomAnimIntervalMin: 11
   randomAnimIntervalMax: 20
