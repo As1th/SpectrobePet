@@ -73,6 +73,8 @@ public class DragGameSprite : MonoBehaviour
     public float randomAnimIntervalMax = 240f;  // Maximum wait time
     public float randomAnimDuration = 10f;      // Duration of the random animation before returning to Idle
 
+    
+    public float happiness = 100f;
     void Start()
     {
         
@@ -97,6 +99,7 @@ public class DragGameSprite : MonoBehaviour
             Destroy(min.GetComponent<DragSpriteRigid>().springJoint.gameObject);
         }
         Destroy(min);
+        happiness = Mathf.Min(100, (happiness + 50));
         animator.SetTrigger("Joy");
         Instantiate(particleJoy, transform);
         StartCoroutine(SetIdle());
@@ -278,6 +281,9 @@ public class DragGameSprite : MonoBehaviour
             }
             lastPetMousePosition = currentMousePos;
         }
+
+        float decayRate = 100 / 1800f; // 30 minutes (1800 seconds) to go from startingHappiness to 0.
+        happiness = Mathf.Max(0, happiness - decayRate * Time.deltaTime);
     }
 
     void HandleZoom()
@@ -503,10 +509,20 @@ public class DragGameSprite : MonoBehaviour
             // Only trigger if the animator is currently in Idle.
             if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
-                // Choose a random trigger from "Random1" to "Random4".
-                int randomIndex = Random.Range(1, 5);  // generates 1, 2, 3, or 4
-                animator.SetTrigger("Random" + randomIndex);
-                print("Random" + randomIndex);
+                if (happiness >= 40)
+                {
+                    // Choose a random trigger from "Random1" to "Random4".
+                    int randomIndex = Random.Range(1, 5);  // generates 1, 2, 3, or 4
+                    animator.SetTrigger("Random" + randomIndex);
+                }
+                else if (happiness > 6)
+                {
+                    animator.SetTrigger("Sad");
+                }
+                else
+                {
+                    animator.SetTrigger("Angry");
+                }
                 // Wait for the random animation to play for the desired duration.
                 yield return new WaitForSeconds(randomAnimDuration);
 
@@ -521,6 +537,8 @@ public class DragGameSprite : MonoBehaviour
     {
         Instantiate(particlePet, transform);
         animator.SetTrigger("Pet");
+        happiness = Mathf.Min(100, (happiness + 10));
+        
         StartCoroutine(SetIdle());
     }
 
