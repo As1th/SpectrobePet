@@ -659,7 +659,7 @@ MonoBehaviour:
   switchIcon: {fileID: 1731515873}
   rotateIcon: {fileID: 1615517220}
   repeatRate: 0.175
-  randomAnimIntervalMin: 10
+  randomAnimIntervalMin: 11
   randomAnimIntervalMax: 20
   randomAnimDuration: 4
 --- !u!136 &383164169
