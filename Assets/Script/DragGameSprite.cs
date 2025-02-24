@@ -515,13 +515,15 @@ public class DragGameSprite : MonoBehaviour
                     int randomIndex = Random.Range(1, 5);  // generates 1, 2, 3, or 4
                     animator.SetTrigger("Random" + randomIndex);
                 }
-                else if (happiness > 6)
+                else if (happiness > 5)
                 {
                     animator.SetTrigger("Sad");
+                    Instantiate(particleSad, transform);
                 }
                 else
                 {
                     animator.SetTrigger("Angry");
+                    Instantiate(particleAngry, transform);
                 }
                 // Wait for the random animation to play for the desired duration.
                 yield return new WaitForSeconds(randomAnimDuration);

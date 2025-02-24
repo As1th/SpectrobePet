@@ -127,8 +127,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9032884273939403154}
   - component: {fileID: 8507458915237006121}
-  - component: {fileID: 8507458915237006127}
-  - component: {fileID: 8507458915237006126}
   - component: {fileID: -3249004020403828802}
   - component: {fileID: 1055935845501959033}
   m_Layer: 0
@@ -175,34 +173,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8507458915237006127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507458915237006120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b32a2b1ce5f091489c3a9c9d5d0b35a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2
-  scaleDuration: 1
---- !u!114 &8507458915237006126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507458915237006120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b32a2b1ce5f091489c3a9c9d5d0b35a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 5
-  scaleDuration: 1
 --- !u!114 &-3249004020403828802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b32a2b1ce5f091489c3a9c9d5d0b35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 2
+  lifetime: 4
   scaleDuration: 0.1
 --- !u!114 &1055935845501959033
 MonoBehaviour:
