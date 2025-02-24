@@ -1043,7 +1043,6 @@ MonoBehaviour:
   walkIcon: {fileID: 2141981581}
   currentSpectrobes:
   - {fileID: 383164162}
-  - {fileID: 0}
   currentMinerals: []
   mineralMeshes:
   - {fileID: 1700091176054199008, guid: a0fdbf4f20a6e1a419a540677ce8c80e, type: 3}
@@ -1917,6 +1916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403688151}
   - component: {fileID: 1403688152}
+  - component: {fileID: 1403688153}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -1953,6 +1953,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.4, z: 1.4}
   m_Center: {x: 0.000000059604645, y: 0.00000011920929, z: 0}
+--- !u!114 &1403688153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403688150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f09227d74e15194591c9a342bbb6f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 667477821}
+  Spectrobe: {fileID: 3005979386501518384, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
 --- !u!1 &1411842160
 GameObject:
   m_ObjectHideFlags: 0
