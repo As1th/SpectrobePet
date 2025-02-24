@@ -67,17 +67,25 @@ public class DragGameSprite : MonoBehaviour
     public float repeatRate = 0.5f; // Time interval between triggers
     private float nextTriggerTime = 0f;
     private bool keyHeld = false;
+
+    [Header("Random Animation Settings")]
+    public float randomAnimIntervalMin = 120f;  // Minimum wait time in seconds before triggering a random animation
+    public float randomAnimIntervalMax = 240f;  // Maximum wait time
+    public float randomAnimDuration = 10f;      // Duration of the random animation before returning to Idle
+
     void Start()
     {
         
         
         mainCamera = Camera.main;
+        animator = GetComponentInChildren<Animator>();
         StartCoroutine(RandomWalk());
+        StartCoroutine(RandomAnimationRoutine());
         // Initialize lastPetMousePosition to the current mouse position.
         lastPetMousePosition = Input.mousePosition;
         walkMaxTime =  walkLocalRangeX / walkSpeed;
         outline = GetComponentInChildren<Outline>();
-        animator = GetComponentInChildren<Animator>();
+       
     }
 
 
@@ -483,6 +491,31 @@ public class DragGameSprite : MonoBehaviour
             }
         }
     }
+
+    IEnumerator RandomAnimationRoutine()
+    {
+        while (true)
+        {
+            // Wait a random interval (in seconds) between random animations.
+            float interval = Random.Range(randomAnimIntervalMin, randomAnimIntervalMax);
+            yield return new WaitForSeconds(interval);
+
+            // Only trigger if the animator is currently in Idle.
+            if (!isDragging && !rotateMode && (Menu == null || !Menu.activeSelf) && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                // Choose a random trigger from "Random1" to "Random4".
+                int randomIndex = Random.Range(1, 5);  // generates 1, 2, 3, or 4
+                animator.SetTrigger("Random" + randomIndex);
+                print("Random" + randomIndex);
+                // Wait for the random animation to play for the desired duration.
+                yield return new WaitForSeconds(randomAnimDuration);
+
+                // After the duration, return to Idle.
+                StartCoroutine(SetIdle());
+            }
+        }
+    }
+
     // This function is called when the mouse is rapidly moved over the object ("petting").
     void Pet()
     {
