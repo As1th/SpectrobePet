@@ -129,12 +129,14 @@ public class DragGameSprite : MonoBehaviour
             StartCoroutine(SmoothCloseRing());
             StartCoroutine(SmoothCloseMenu());
             outline.enabled = false;
+            
         }
         else
         {
+            outline.enabled = true;
             
             StartCoroutine(SmoothOpenMenu());
-            outline.enabled = true;
+            
         }
     }
 
@@ -222,14 +224,22 @@ public class DragGameSprite : MonoBehaviour
             Ring.transform.localScale = Vector3.zero;
             Ring.SetActive(false);
             OpenMenu();
-            manager.SelectedSpectrobe.rotateMode = false;
-                manager.SelectedSpectrobe.switchMode = false;
-                resetIcon(rotateIcon);
-                resetIcon(switchIcon);
+
+
+            
+            resetIcon(rotateIcon);
+            resetIcon(switchIcon);
+            if(manager.SelectedSpectrobe != this)
+            {
                 manager.SelectedSpectrobe.outline.enabled = false;
-                Menu.GetComponent<UIFollowGameObject>().targetObject = this.transform;
-                Ring.GetComponent<UIFollowGameObject>().targetObject = this.transform;
-                manager.SelectedSpectrobe = this;
+                manager.SelectedSpectrobe.rotateMode = false;
+                manager.SelectedSpectrobe.switchMode = false;
+            }
+            
+            
+            Menu.GetComponent<UIFollowGameObject>().targetObject = this.transform;
+            Ring.GetComponent<UIFollowGameObject>().targetObject = this.transform;
+            manager.SelectedSpectrobe = this;
             
                
             

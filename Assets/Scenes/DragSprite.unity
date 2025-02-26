@@ -2891,6 +2891,10 @@ PrefabInstance:
       propertyPath: switchIcon
       value: 
       objectReference: {fileID: 1731515873}
+    - target: {fileID: 6825768221846672864, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
 --- !u!1 &3841408630203435452
