@@ -558,7 +558,7 @@ public class DragGameSprite : MonoBehaviour
                     int randomIndex = Random.Range(1, 5);  // generates 1, 2, 3, or 4
                     animator.SetTrigger("Random" + randomIndex);
                 }
-                else if (happiness > 5)
+                else if (happiness > 10)
                 {
                     animator.SetTrigger("Sad");
                     Instantiate(particleSad, transform);
