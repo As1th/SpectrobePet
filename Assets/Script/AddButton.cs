@@ -15,8 +15,12 @@ public class AddButton : MonoBehaviour
 
     void OnMouseDown()
     {
-        manager.currentSpectrobes.Add(Instantiate(Spectrobe));
-
+        var mon = Instantiate(Spectrobe);
+        manager.currentSpectrobes.Add(mon);
+        foreach(GameObject min in manager.currentMinerals)
+        {
+            min.GetComponentInChildren<ScreenSpaceCollisionDetector>().otherObjects.Add(mon.GetComponentInChildren<SkinnedMeshRenderer>().gameObject);
+        }
             
     }
 

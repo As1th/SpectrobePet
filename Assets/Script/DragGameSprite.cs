@@ -208,7 +208,7 @@ public class DragGameSprite : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    public void OnMouseUp()
     {
         if (!isDragging)
         {
