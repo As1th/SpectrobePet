@@ -9,8 +9,9 @@ Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.
 Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.  
 Quickly move cursor over the Spectrobe to pet the Spectrobe.  
 Click on the Spectrobe to activate its **Menu**. Click again to deactivate.  
-While the Menu is activated, all Spectrobe animations will be paused.  
-While the Menu is deativated, the Spectrobe will cycle through various animations.
+While the Menu is deativated, the Spectrobe will cycle through various animations.  
+While the Menu is activated, all Spectrobe animations on the screen will be paused.  
+
 
 # Menu Functions 
 ## ![Spectrobe Switch Mode](Assets/Art/Sprites/switch.png) Switch Spectrobe
