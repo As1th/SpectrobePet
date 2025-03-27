@@ -105,7 +105,7 @@ public class DragGameSprite : MonoBehaviour
             Destroy(min.GetComponent<DragSpriteRigid>().springJoint.gameObject);
         }
         Destroy(min);
-        happiness = Mathf.Min(100, (happiness + 50));
+        happiness = Mathf.Min(100, (happiness + 35));
         animator.SetTrigger("Joy");
         Instantiate(particleJoy, transform);
         StartCoroutine(SetIdle());
