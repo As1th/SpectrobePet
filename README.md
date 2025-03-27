@@ -9,6 +9,9 @@ Click on the Spectrobe and drag to move the Spectrobe anywhere on the screen.
 Place cursor over the Spectrobe and use Mouse Wheel or or W/S Keys to make the Spectrobe bigger or smaller.  
 Quickly move cursor over the Spectrobe to pet the Spectrobe.  
 Click on the Spectrobe to activate its **Menu**. Click again to deactivate.  
+While the Menu is deativated, the Spectrobe will cycle through various animations.  
+While the Menu is activated, all Spectrobe animations on the screen will be paused.  
+
 
 # Menu Functions 
 ## ![Spectrobe Switch Mode](Assets/Art/Sprites/switch.png) Switch Spectrobe
@@ -37,7 +40,7 @@ Click to open this Help page.
 Click to spawn a Mineral in a random location on the screen.  
 Minerals have physics and can be dragged and thrown by the mouse cursor.  
 Spectrobes will eat the mineral if they collide with it.  
-Spectrobes who have not eaten Minerals in a while may trigger a "Sad" or "Angry" animation. This does not have any effect.  
+Spectrobes who have not eaten Minerals in a while will trigger "Sad" or "Angry" animations. This does not have any effect.  
 
 ## ![Add](Assets/Art/Sprites/plus.png) Add Spectrobe
 Click to add another Spectrobe to the screen.  
