@@ -275,34 +275,35 @@ public class DragGameSprite : MonoBehaviour
         } else if(switchMode)
         {
 
-            if (Input.GetKeyDown(KeyCode.W)) // Immediate trigger on press
+            if (Input.GetKeyDown(KeyCode.W) || Input.mouseScrollDelta.y > 0) // Immediate trigger
             {
                 IncrementSpecies();
                 keyHeld = true;
                 nextTriggerTime = Time.time + repeatRate;
             }
-            else if (Input.GetKey(KeyCode.W) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
+            else if ((Input.GetKey(KeyCode.W) || Input.mouseScrollDelta.y > 0) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
             {
                 IncrementSpecies();
                 nextTriggerTime = Time.time + repeatRate;
             }
-            else if (Input.GetKeyUp(KeyCode.W)) // Reset when released
+            else if (Input.GetKeyUp(KeyCode.W)) // Reset when W is released
             {
                 keyHeld = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.S)) // Immediate trigger on press
+            // Check for S key or Mouse Scroll Down
+            if (Input.GetKeyDown(KeyCode.S) || Input.mouseScrollDelta.y < 0) // Immediate trigger
             {
                 DecrementSpecies();
                 keyHeld = true;
                 nextTriggerTime = Time.time + repeatRate;
             }
-            else if (Input.GetKey(KeyCode.S) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
+            else if ((Input.GetKey(KeyCode.S) || Input.mouseScrollDelta.y < 0) && keyHeld && Time.time >= nextTriggerTime) // Slow repeat
             {
                 DecrementSpecies();
                 nextTriggerTime = Time.time + repeatRate;
             }
-            else if (Input.GetKeyUp(KeyCode.S)) // Reset when released
+            else if (Input.GetKeyUp(KeyCode.S)) // Reset when S is released
             {
                 keyHeld = false;
             }
@@ -332,7 +333,7 @@ public class DragGameSprite : MonoBehaviour
     void HandleZoom()
     {
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-        if (scrollInput != 0)
+        if (scrollInput != 0 && !switchMode)
         {
             Vector3 zoomDirection = (transform.position - mainCamera.transform.position).normalized;
             transform.position += zoomDirection * scrollInput * zoomSpeed;
