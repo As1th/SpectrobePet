@@ -39,7 +39,7 @@ public class PerformanceSettings : MonoBehaviour
 
     void SetupMultiMonitorCameras()
     {
-        int totalDisplays = 3;//Display.displays.Length;
+        int totalDisplays = Display.displays.Length;
 
         if (totalDisplays < 2)
         {
