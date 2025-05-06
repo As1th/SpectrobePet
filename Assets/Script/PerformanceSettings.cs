@@ -28,13 +28,14 @@ public class PerformanceSettings : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         UpdateTargetFPS();
 
+
         // Activate all connected displays
         for (int i = 1; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
         }
         test.text = "Monitors: " + Display.displays.Length;
-        SetupMultiMonitorCameras();
+       // SetupMultiMonitorCameras();
     }
 
     void SetupMultiMonitorCameras()
