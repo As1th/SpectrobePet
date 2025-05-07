@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66319355}
   - component: {fileID: 66319357}
-  - component: {fileID: 66319356}
+  - component: {fileID: 66319358}
   m_Layer: 5
   m_Name: FPSButton
   m_TagString: Untagged
@@ -377,18 +377,6 @@ Transform:
   m_Father: {fileID: 1617755340}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &66319356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66319354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5de12afcfd2b294bb79c6cec7f39273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &66319357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -402,6 +390,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.4, z: 1.4}
   m_Center: {x: 0.000000059604645, y: 0.00000011920929, z: 0}
+--- !u!114 &66319358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66319354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad9670e0fd881648a8c7d09e4e71f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 667477819}
+  Icon30: {fileID: 21300000, guid: 8f56e9d2828be8d409b7a0a0e32030e1, type: 3}
+  Icon60: {fileID: 21300000, guid: b69e61af5f49bbc478478ade9c1848b4, type: 3}
 --- !u!1 &145057995
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +478,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4b26120c468d4e409729cfc2e00e86a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f721e0b06d79724d8145e027482fab7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 1
@@ -860,7 +863,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4b26120c468d4e409729cfc2e00e86a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f56e9d2828be8d409b7a0a0e32030e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 1
@@ -1088,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349513223}
   - component: {fileID: 349513225}
-  - component: {fileID: 349513224}
+  - component: {fileID: 349513226}
   m_Layer: 5
   m_Name: MonitorButton
   m_TagString: Untagged
@@ -1113,18 +1116,6 @@ Transform:
   m_Father: {fileID: 1617755340}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &349513224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349513222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5de12afcfd2b294bb79c6cec7f39273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &349513225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1138,6 +1129,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.4, z: 1.4}
   m_Center: {x: 0.000000059604645, y: 0.00000011920929, z: 0}
+--- !u!114 &349513226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349513222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2214359c2afb6c469461e3d7de2f30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &383164162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3005979386501518384, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
@@ -2842,6 +2845,7 @@ GameObject:
   - component: {fileID: 1497376551}
   - component: {fileID: 1497376550}
   - component: {fileID: 1497376552}
+  - component: {fileID: 1497376553}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2893,6 +2897,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edf59a8c9dab0848b6388e2441fce97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1497376553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497376549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8cd2f84c3f702e488dc1011f8699079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monitorButton: {fileID: 349513222}
 --- !u!1 &1548626338
 GameObject:
   m_ObjectHideFlags: 0

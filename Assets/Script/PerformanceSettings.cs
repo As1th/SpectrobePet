@@ -30,10 +30,7 @@ public class PerformanceSettings : MonoBehaviour
 
 
         // Activate all connected displays
-        for (int i = 1; i < Display.displays.Length; i++)
-        {
-            Display.displays[i].Activate();
-        }
+      
         test.text = "Monitors: " + Display.displays.Length;
        // SetupMultiMonitorCameras();
     }

@@ -14,7 +14,7 @@ public class HelpButton : MonoBehaviour
 
     void OnMouseDown()
     {
-        Application.OpenURL("https://github.com/As1th/SpectrobePet/blob/main/README.md");
+        Application.OpenURL("https://asith.itch.io/spectrobe-pet");
     }
 
     // Update is called once per frame
