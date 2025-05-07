@@ -1771,6 +1771,7 @@ MonoBehaviour:
   - {fileID: 1865480304740974708, guid: 87e159cf83195b041bf9b997521ea704, type: 3}
   - {fileID: 8687031651628570872, guid: b1d6dc6584a425041ade93aa1b0e7d68, type: 3}
   - {fileID: 4134164281432072463, guid: 676d0c9d0c8da25458cdba160af136c9, type: 3}
+  - {fileID: 1403338572508495487, guid: 10c8f3098642a5b498f44e9a063416d8, type: 3}
 --- !u!1 &783753270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,7 +2540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299083696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.503, y: 1.1, z: 0.27}
+  m_LocalPosition: {x: -0.5, y: 1.1, z: 0.27}
   m_LocalScale: {x: 0.13000001, y: 2.119567, z: 0.2954548}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4000,6 +4001,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2699357682742823157, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3005979386501518384, guid: 63f1a754ea16c5644b1216cd7850e223, type: 3}
       propertyPath: m_Name
       value: Spectrobe
