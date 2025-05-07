@@ -6,6 +6,7 @@ using UnityEngine;
 public class MonitorButton : MonoBehaviour
 {
     private int currentMonitor = 0;
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,19 +14,34 @@ public class MonitorButton : MonoBehaviour
         {
             Display.displays[i].Activate();
         }
+        cam = Camera.main;
     }
 
     void OnMouseDown()
     {
+        StartCoroutine(BlankDisplay(currentMonitor));
         currentMonitor++;
-        if(currentMonitor >= Display.displays.Length)
+        if(currentMonitor >= 3)
         {
             currentMonitor = 0;
         }
-        Camera.main.targetDisplay = currentMonitor;
+       
+       cam.targetDisplay = currentMonitor;
+      
     }
 
-    // Update is called once per frame
+    IEnumerator BlankDisplay(int displayIndex)
+    {
+        var go = new GameObject("Blanker");
+        var cam = go.AddComponent<Camera>();
+        cam.targetDisplay = displayIndex;
+        
+        cam.depth = -100;         // render before your real camera
+        cam.cullingMask = 0;
+        yield return new WaitForSeconds(0.1f);
+        yield return null;        // wait one frame
+        Destroy(go);
+    }
 
-   
+
 }
