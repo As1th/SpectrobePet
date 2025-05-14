@@ -203,7 +203,7 @@ public class DragGameSprite : MonoBehaviour
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 curPosition = mainCamera.ScreenToWorldPoint(curScreenPoint) + offset;
-           curPosition = ClampToScreenBounds(curPosition);
+        //   curPosition = ClampToScreenBounds(curPosition);
             transform.position = curPosition;
         }
     }
@@ -309,7 +309,7 @@ public class DragGameSprite : MonoBehaviour
             }
         }
 
-        EnforceBounds();
+      //  EnforceBounds();
 
         // Petting detection: when the mouse is rapidly moved over the object.
         // Only trigger petting if the mouse button is NOT held down.
@@ -517,7 +517,7 @@ public class DragGameSprite : MonoBehaviour
                 
                
 
-                targetPos = ClampToScreenBounds(targetPos);
+              //  targetPos = ClampToScreenBounds(targetPos);
                 targetPos = transform.position + Vector3.ProjectOnPlane(targetPos - transform.position, transform.up);
                 // Initialize a timer.
                 float elapsedTime = 0f;
